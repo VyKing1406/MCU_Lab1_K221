@@ -48,65 +48,7 @@
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
-void display7SEG(int num, GPIO_TypeDef *GPIOx, uint16_t Seg7a_Pin,
-		uint16_t Seg7b_Pin, uint16_t Seg7c_Pin, uint16_t Seg7d_Pin,
-		uint16_t Seg7e_Pin, uint16_t Seg7f_Pin, uint16_t Seg7g_Pin) {
-	if (num == 0) {
-		HAL_GPIO_WritePin(GPIOB, Seg7g_Pin, 1);
-		HAL_GPIO_WritePin(GPIOB,
-				Seg7a_Pin | Seg7b_Pin | Seg7c_Pin | Seg7d_Pin | Seg7e_Pin
-						| Seg7f_Pin, 0);
 
-	}
-	if (num == 1) {
-		HAL_GPIO_WritePin(GPIOB,
-				Seg7a_Pin | Seg7d_Pin | Seg7e_Pin | Seg7f_Pin | Seg7g_Pin, 1);
-		HAL_GPIO_WritePin(GPIOB, Seg7b_Pin | Seg7c_Pin, 0);
-	}
-	if (num == 2) {
-		HAL_GPIO_WritePin(GPIOB, Seg7c_Pin | Seg7f_Pin, 1);
-		HAL_GPIO_WritePin(GPIOB,
-				Seg7a_Pin | Seg7b_Pin | Seg7d_Pin | Seg7e_Pin | Seg7g_Pin, 0);
-	}
-	if (num == 3) {
-		HAL_GPIO_WritePin(GPIOB, Seg7e_Pin | Seg7f_Pin, 1);
-		HAL_GPIO_WritePin(GPIOB,
-				Seg7a_Pin | Seg7b_Pin | Seg7c_Pin | Seg7d_Pin | Seg7g_Pin, 0);
-	}
-	if (num == 4) {
-		HAL_GPIO_WritePin(GPIOB, Seg7a_Pin | Seg7d_Pin | Seg7e_Pin, 1);
-		HAL_GPIO_WritePin(GPIOB, Seg7b_Pin | Seg7c_Pin | Seg7f_Pin | Seg7g_Pin,
-				0);
-	}
-	if (num == 5) {
-		HAL_GPIO_WritePin(GPIOB, Seg7b_Pin | Seg7e_Pin, 1);
-		HAL_GPIO_WritePin(GPIOB,
-				Seg7a_Pin | Seg7c_Pin | Seg7d_Pin | Seg7f_Pin | Seg7g_Pin, 0);
-	}
-	if (num == 6) {
-		HAL_GPIO_WritePin(GPIOB, Seg7b_Pin, 1);
-		HAL_GPIO_WritePin(GPIOB,
-				Seg7a_Pin | Seg7c_Pin | Seg7d_Pin | Seg7e_Pin | Seg7f_Pin
-						| Seg7g_Pin, 0);
-	}
-	if (num == 7) {
-		HAL_GPIO_WritePin(GPIOB, Seg7d_Pin | Seg7e_Pin | Seg7f_Pin | Seg7g_Pin,
-				1);
-		HAL_GPIO_WritePin(GPIOB, Seg7a_Pin | Seg7b_Pin | Seg7c_Pin, 0);
-	}
-	if (num == 8) {
-		HAL_GPIO_WritePin(GPIOB,
-				Seg7a_Pin | Seg7b_Pin | Seg7c_Pin | Seg7d_Pin | Seg7e_Pin
-						| Seg7f_Pin | Seg7g_Pin, 0);
-	}
-	if (num == 9) {
-		HAL_GPIO_WritePin(GPIOB, Seg7e_Pin, 1);
-		HAL_GPIO_WritePin(GPIOB,
-				Seg7a_Pin | Seg7b_Pin | Seg7c_Pin | Seg7d_Pin | Seg7f_Pin
-						| Seg7g_Pin, 0);
-	}
-
-}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -225,7 +167,7 @@ int main(void) {
 
 		HAL_Delay(1000);
 	}
-	/* USER CODE END 3 */s
+	/* USER CODE END 3 */
 }
 
 /**
