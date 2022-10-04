@@ -1303,3 +1303,6 @@ java.lang.Exception: File: D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX3\Debug\EX3.elf
 
 !ENTRY org.eclipse.cdt.core 1 0 2022-10-04 08:48:42.795
 !MESSAGE Indexed 'EX7' (17 sources, 104 headers) in 1.96 sec: 6,984 declarations; 24,739 references; 2 unresolved inclusions; 36 syntax errors; 188 unresolved names (0.59%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-04 08:54:06.678
+!MESSAGE Indexed 'EX8' (17 sources, 104 headers) in 1.58 sec: 6,985 declarations; 24,937 references; 2 unresolved inclusions; 36 syntax errors; 188 unresolved names (0.59%)
