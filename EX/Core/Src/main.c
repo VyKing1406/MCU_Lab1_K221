@@ -170,6 +170,8 @@ int main(void) {
 		seconds++;
 
 		HAL_Delay(1000);
+		/* USER CODE END 3 */
+
 	}
 	/* USER CODE END 3 */
 }
