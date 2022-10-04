@@ -55,6 +55,7 @@ void TurnAllClock() {
 					| Led_10_Pin | Led_11_Pin, GPIO_PIN_RESET);
 }
 void clearNumberOnClock(int num) {
+	TurnAllClock();
 	switch (num) {
 	case 0: {
 		HAL_GPIO_WritePin(GPIOA, Led_0_Pin, GPIO_PIN_SET);
@@ -162,7 +163,6 @@ int main(void) {
 		if (count == 12) {
 			count = 0;
 		}
-		TurnAllClock();
 		clearNumberOnClock(count);
 		HAL_Delay(1000);
 	}
