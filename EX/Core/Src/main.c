@@ -169,7 +169,7 @@ int main(void) {
 		setNumberOnClock(seconds / 5);
 		seconds++;
 
-		HAL_Delay(10);
+		HAL_Delay(1000);
 	}
 	/* USER CODE END 3 */
 }
