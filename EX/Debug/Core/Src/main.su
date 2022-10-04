@@ -1,5 +1,5 @@
 ../Core/Src/main.c:51:6:display7SEG	24	static
-../Core/Src/main.c:121:5:main	48	static
-../Core/Src/main.c:226:6:SystemClock_Config	72	static
-../Core/Src/main.c:263:13:MX_GPIO_Init	32	static
-../Core/Src/main.c:313:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:121:5:main	16	static
+../Core/Src/main.c:235:6:SystemClock_Config	72	static
+../Core/Src/main.c:269:13:MX_GPIO_Init	32	static
+../Core/Src/main.c:302:6:Error_Handler	4	static,ignoring_inline_asm
