@@ -46,3 +46,6 @@ com.sun.jna.platform.win32.Win32Exception: The system cannot find the file speci
 
 !ENTRY org.eclipse.cdt.core 1 0 2022-09-28 10:44:41.247
 !MESSAGE Indexed 'EX1' (17 sources, 103 headers) in 2.63 sec: 6,983 declarations; 23,340 references; 6 unresolved inclusions; 595 syntax errors; 838 unresolved names (2.7%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-04 09:38:15.075
+!MESSAGE Indexed 'EX2' (17 sources, 104 headers) in 1.66 sec: 6,983 declarations; 24,692 references; 2 unresolved inclusions; 36 syntax errors; 188 unresolved names (0.59%)
