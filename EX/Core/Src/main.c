@@ -79,7 +79,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	Led_Timer_2();
 	counter--;
 	if (counter <= 0) {
-		counter = 10;
+		counter = 100;
 		if (state == 0) {
 			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, 0);
 			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, 1);
@@ -242,7 +242,7 @@ int main(void) {
 			hour=0;
 		}
 		updateClockBuffer();
-		HAL_Delay(100);
+		HAL_Delay(1000);
 	}
 	/* USER CODE END 3 */
 }
