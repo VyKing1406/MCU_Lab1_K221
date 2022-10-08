@@ -76,6 +76,7 @@ void Led_Timer_2() {
 	}
 }
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	timer_run () ;
 	Led_Timer_2();
 	counter--;
 	if (counter <= 0) {
@@ -123,8 +124,7 @@ void update7SEG(int index) {
 	if (num == 0) {
 		HAL_GPIO_WritePin(GPIOB, SEG6_Pin, 1);
 		HAL_GPIO_WritePin(GPIOB,
-		SEG0_Pin | SEG1_Pin | SEG2_Pin | SEG3_Pin | SEG4_Pin | SEG5_Pin,
-				0);
+		SEG0_Pin | SEG1_Pin | SEG2_Pin | SEG3_Pin | SEG4_Pin | SEG5_Pin, 0);
 
 	}
 	if (num == 1) {
@@ -144,8 +144,7 @@ void update7SEG(int index) {
 	}
 	if (num == 4) {
 		HAL_GPIO_WritePin(GPIOB, SEG0_Pin | SEG3_Pin | SEG4_Pin, 1);
-		HAL_GPIO_WritePin(GPIOB, SEG1_Pin | SEG2_Pin | SEG5_Pin | SEG6_Pin,
-				0);
+		HAL_GPIO_WritePin(GPIOB, SEG1_Pin | SEG2_Pin | SEG5_Pin | SEG6_Pin, 0);
 	}
 	if (num == 5) {
 		HAL_GPIO_WritePin(GPIOB, SEG1_Pin | SEG4_Pin, 1);
@@ -155,8 +154,7 @@ void update7SEG(int index) {
 	if (num == 6) {
 		HAL_GPIO_WritePin(GPIOB, SEG1_Pin, 1);
 		HAL_GPIO_WritePin(GPIOB,
-		SEG0_Pin | SEG2_Pin | SEG3_Pin | SEG4_Pin | SEG5_Pin | SEG6_Pin,
-				0);
+		SEG0_Pin | SEG2_Pin | SEG3_Pin | SEG4_Pin | SEG5_Pin | SEG6_Pin, 0);
 	}
 	if (num == 7) {
 		HAL_GPIO_WritePin(GPIOB,
@@ -165,16 +163,30 @@ void update7SEG(int index) {
 	}
 	if (num == 8) {
 		HAL_GPIO_WritePin(GPIOB,
-				SEG0_Pin | SEG1_Pin | SEG2_Pin | SEG3_Pin | SEG4_Pin
-						| SEG5_Pin | SEG6_Pin, 0);
+				SEG0_Pin | SEG1_Pin | SEG2_Pin | SEG3_Pin | SEG4_Pin | SEG5_Pin
+						| SEG6_Pin, 0);
 	}
 	if (num == 9) {
 		HAL_GPIO_WritePin(GPIOB, SEG4_Pin, 1);
 		HAL_GPIO_WritePin(GPIOB,
-		SEG0_Pin | SEG1_Pin | SEG2_Pin | SEG3_Pin | SEG5_Pin | SEG6_Pin,
-				0);
+		SEG0_Pin | SEG1_Pin | SEG2_Pin | SEG3_Pin | SEG5_Pin | SEG6_Pin, 0);
 	}
 
+}
+int timer0_counter = 0;
+int timer0_flag = 0;
+int TIMER_CYCLE = 10;
+void setTimer0(int duration) {
+	timer0_counter = duration / TIMER_CYCLE;
+	timer0_flag = 0;
+}
+void timer_run() {
+	if (timer0_counter > 0) {
+		timer0_counter --;
+
+		if (timer0_counter == 0)
+			timer0_flag = 1;
+	}
 }
 /* USER CODE END 0 */
 
@@ -211,14 +223,15 @@ int main(void) {
 	SEG0_Pin | SEG1_Pin | SEG2_Pin | SEG3_Pin | SEG4_Pin | SEG5_Pin | SEG6_Pin,
 			1);
 	HAL_TIM_Base_Start_IT(&htim2);
-	int hour=0, minute=0, second=0;
-	void updateClockBuffer ()
-	{
-		led_buffer[3]=minute-(minute/10)*10;
-		led_buffer[2]=minute/10;
-		led_buffer[1]=hour-(hour/10)*10;
-		led_buffer[0]=hour/10;
+	int hour = 0, minute = 0, second = 0;
+	void updateClockBuffer() {
+		led_buffer[3] = minute - (minute / 10) * 10;
+		led_buffer[2] = minute / 10;
+		led_buffer[1] = hour - (hour / 10) * 10;
+		led_buffer[0] = hour / 10;
 	}
+
+	/* USER CODE END 0 */
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -226,23 +239,11 @@ int main(void) {
 	while (1) {
 		/* USER CODE END WHILE */
 		/* USER CODE BEGIN 3 */
-		second++;
-		if(second >=60)
+		if(timer0_flag==1)
 		{
-			second=0;
-			minute++;
+			HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+			setTimer0(2000);
 		}
-		if(minute >=60)
-		{
-			minute=0;
-			hour++;
-		}
-		if(hour >=24)
-		{
-			hour=0;
-		}
-		updateClockBuffer();
-		HAL_Delay(1000);
 	}
 	/* USER CODE END 3 */
 }

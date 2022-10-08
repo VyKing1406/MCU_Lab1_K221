@@ -1,17 +1,34 @@
-21:44:08 **** Incremental Build of configuration Debug for project EX ****
+21:54:03 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
+../Core/Src/main.c:79:2: warning: implicit declaration of function 'timer_run' [-Wimplicit-function-declaration]
+   79 |  timer_run () ;
+      |  ^~~~~~~~~
+../Core/Src/main.c:89:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
+   89 |    update7SEG(index_led++);
       |    ^~~~~~~~~~
 ../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
+../Core/Src/main.c:122:6: warning: conflicting types for 'update7SEG'
+  122 | void update7SEG(int index) {
       |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
+../Core/Src/main.c:89:4: note: previous implicit declaration of 'update7SEG' was here
+   89 |    update7SEG(index_led++);
       |    ^~~~~~~~~~
+../Core/Src/main.c:183:6: warning: conflicting types for 'timer_run'
+  183 | void timer_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:79:2: note: previous implicit declaration of 'timer_run' was here
+   79 |  timer_run () ;
+      |  ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:226:28: warning: unused variable 'second' [-Wunused-variable]
+  226 |  int hour = 0, minute = 0, second = 0;
+      |                            ^~~~~~
+At top level:
+../Core/Src/main.c:227:7: warning: 'updateClockBuffer' defined but not used [-Wunused-function]
+  227 |  void updateClockBuffer() {
+      |       ^~~~~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: EX.elf
  
@@ -20,15 +37,15 @@ arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
 arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
 arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
    text	   data	    bss	    dec	    hex	filename
-   7876	     44	   1652	   9572	   2564	EX.elf
+   7808	     48	   1664	   9520	   2530	EX.elf
 Finished building: default.size.stdout
  
 Finished building: EX.hex
 Finished building: EX.bin
- 
 Finished building: EX.list
  
  
+ 
 
-21:44:09 Build Finished. 0 errors, 2 warnings. (took 1s.105ms)
+21:54:04 Build Finished. 0 errors, 6 warnings. (took 857ms)
 
