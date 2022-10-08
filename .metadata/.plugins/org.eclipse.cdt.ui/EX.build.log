@@ -1,4 +1,4 @@
-19:43:36 **** Incremental Build of configuration Debug for project EX ****
+21:06:21 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
@@ -19,7 +19,7 @@ arm-none-eabi-size   EX.elf
 arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
 arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
    text	   data	    bss	    dec	    hex	filename
-   7464	     44	   1652	   9160	   23c8	EX.elf
+   7872	     44	   1652	   9568	   2560	EX.elf
 arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
 Finished building: default.size.stdout
  
@@ -30,5 +30,5 @@ Finished building: EX.list
  
  
 
-19:43:37 Build Finished. 0 errors, 2 warnings. (took 848ms)
+21:06:22 Build Finished. 0 errors, 2 warnings. (took 854ms)
 
