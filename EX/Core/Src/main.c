@@ -76,7 +76,9 @@ void Led_Timer_2() {
 	}
 }
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	timer_run () ;
+	second_run();
+	minute_run();
+	hour_run();
 	Led_Timer_2();
 	counter--;
 	if (counter <= 0) {
@@ -173,19 +175,47 @@ void update7SEG(int index) {
 	}
 
 }
-int timer0_counter = 0;
-int timer0_flag = 0;
+int timer_second = 600;
+int second_flag = 0;
+int timer_minute = 600;
+int minute_flag = 0;
+int timer_hour = 360000;
+int hour_flag = 0;
 int TIMER_CYCLE = 10;
-void setTimer0(int duration) {
-	timer0_counter = duration / TIMER_CYCLE;
-	timer0_flag = 0;
+void setTimer_second(int duration) {
+	timer_second = duration / TIMER_CYCLE;
+	second_flag = 0;
 }
-void timer_run() {
-	if (timer0_counter > 0) {
-		timer0_counter --;
-
-		if (timer0_counter == 0)
-			timer0_flag = 1;
+void second_run() {
+	if (timer_second > 0) {
+		timer_second--;
+	}
+	if (timer_second == 0) {
+		second_flag = 1;
+	}
+}
+void setTimer_minute(int duration) {
+	timer_minute = duration / TIMER_CYCLE;
+	minute_flag = 0;
+}
+void minute_run() {
+	if (timer_minute > 0) {
+		timer_minute--;
+	}
+	if (timer_minute == 0) {
+		minute_flag = 1;
+	}
+}
+void setTimer_hour(int duration) {
+	timer_hour = duration / TIMER_CYCLE;
+	hour_flag = 0;
+}
+void hour_run() {
+	if (timer_hour > 0) {
+		timer_hour--;
+	}
+	if (timer_hour == 0) {
+		hour_flag = 1;
 	}
 }
 /* USER CODE END 0 */
@@ -236,14 +266,32 @@ int main(void) {
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
+	setTimer_second(100);
 	while (1) {
 		/* USER CODE END WHILE */
 		/* USER CODE BEGIN 3 */
-		if(timer0_flag==1)
-		{
-			HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
-			setTimer0(2000);
+		if (second_flag == 1) {
+			second++;
+			setTimer_second(100);
 		}
+		if (minute_flag == 1) {
+			minute++;
+			setTimer_minute(6000);
+		}
+		if (hour_flag == 1) {
+			hour++;
+			setTimer_hour(360000);
+		}
+		if (second >= 60) {
+			second = 0;
+		}
+		if (minute >= 60) {
+			minute = 0;
+		}
+		if (hour >= 24) {
+			hour = 0;
+		}
+		updateClockBuffer();
 	}
 	/* USER CODE END 3 */
 }
