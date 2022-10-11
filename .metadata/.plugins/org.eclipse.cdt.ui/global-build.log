@@ -2216,3 +2216,2767 @@ Finished building: EX.list
  
  
  
+09:54:49 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:86:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   86 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:87:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   87 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:88:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   88 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:98:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
+   98 |    update7SEG(index_led++);
+      |    ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:131:6: warning: conflicting types for 'update7SEG'
+  131 | void update7SEG(int index) {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:98:4: note: previous implicit declaration of 'update7SEG' was here
+   98 |    update7SEG(index_led++);
+      |    ^~~~~~~~~~
+../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
+  189 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:86:2: note: previous implicit declaration of 'second_run' was here
+   86 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
+  201 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:87:2: note: previous implicit declaration of 'minute_run' was here
+   87 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
+  213 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:88:2: note: previous implicit declaration of 'hour_run' was here
+   88 |  hour_run();
+      |  ^~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8148	     60	   1668	   9876	   2694	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:01:44 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:86:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   86 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:87:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   87 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:88:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   88 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:182:6: warning: conflicting types for 'second_run'
+  182 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:86:2: note: previous implicit declaration of 'second_run' was here
+   86 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:194:6: warning: conflicting types for 'minute_run'
+  194 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:87:2: note: previous implicit declaration of 'minute_run' was here
+   87 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:206:6: warning: conflicting types for 'hour_run'
+  206 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:88:2: note: previous implicit declaration of 'hour_run' was here
+   88 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:262:4: error: 'led_index' undeclared (first use in this function)
+  262 |    led_index++;
+      |    ^~~~~~~~~
+../Core/Src/main.c:262:4: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:289:24: error: 'index' undeclared (first use in this function)
+  289 |   int num = led_buffer[index];
+      |                        ^~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:02:16 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:86:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   86 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:87:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   87 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:88:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   88 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:182:6: warning: conflicting types for 'second_run'
+  182 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:86:2: note: previous implicit declaration of 'second_run' was here
+   86 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:194:6: warning: conflicting types for 'minute_run'
+  194 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:87:2: note: previous implicit declaration of 'minute_run' was here
+   87 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:206:6: warning: conflicting types for 'hour_run'
+  206 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:88:2: note: previous implicit declaration of 'hour_run' was here
+   88 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:289:24: error: 'index' undeclared (first use in this function)
+  289 |   int num = led_buffer[index];
+      |                        ^~~~~
+../Core/Src/main.c:289:24: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:02:29 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:86:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   86 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:87:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   87 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:88:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   88 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:182:6: warning: conflicting types for 'second_run'
+  182 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:86:2: note: previous implicit declaration of 'second_run' was here
+   86 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:194:6: warning: conflicting types for 'minute_run'
+  194 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:87:2: note: previous implicit declaration of 'minute_run' was here
+   87 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:206:6: warning: conflicting types for 'hour_run'
+  206 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:88:2: note: previous implicit declaration of 'hour_run' was here
+   88 |  hour_run();
+      |  ^~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8072	     60	   1668	   9800	   2648	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.bin
+Finished building: EX.hex
+ 
+Finished building: EX.list
+ 
+ 
+10:17:54 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:88:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   88 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:89:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   89 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   90 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:130:6: warning: conflicting types for 'second_run'
+  130 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:88:2: note: previous implicit declaration of 'second_run' was here
+   88 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:142:6: warning: conflicting types for 'minute_run'
+  142 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:89:2: note: previous implicit declaration of 'minute_run' was here
+   89 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:154:6: warning: conflicting types for 'hour_run'
+  154 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'hour_run' was here
+   90 |  hour_run();
+      |  ^~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8140	     64	   1672	   9876	   2694	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+10:18:51 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:88:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   88 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:89:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   89 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   90 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:130:6: warning: conflicting types for 'second_run'
+  130 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:88:2: note: previous implicit declaration of 'second_run' was here
+   88 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:142:6: warning: conflicting types for 'minute_run'
+  142 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:89:2: note: previous implicit declaration of 'minute_run' was here
+   89 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:154:6: warning: conflicting types for 'hour_run'
+  154 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'hour_run' was here
+   90 |  hour_run();
+      |  ^~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8136	     64	   1672	   9872	   2690	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:19:31 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:88:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   88 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:89:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   89 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   90 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:130:6: warning: conflicting types for 'second_run'
+  130 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:88:2: note: previous implicit declaration of 'second_run' was here
+   88 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:142:6: warning: conflicting types for 'minute_run'
+  142 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:89:2: note: previous implicit declaration of 'minute_run' was here
+   89 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:154:6: warning: conflicting types for 'hour_run'
+  154 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'hour_run' was here
+   90 |  hour_run();
+      |  ^~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8160	     48	   1688	   9896	   26a8	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:21:37 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:88:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   88 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:89:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   89 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   90 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:131:6: warning: conflicting types for 'second_run'
+  131 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:88:2: note: previous implicit declaration of 'second_run' was here
+   88 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:143:6: warning: conflicting types for 'minute_run'
+  143 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:89:2: note: previous implicit declaration of 'minute_run' was here
+   89 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:155:6: warning: conflicting types for 'hour_run'
+  155 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'hour_run' was here
+   90 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:167:6: warning: conflicting types for 'index_run'
+  167 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
+   91 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8216	     48	   1688	   9952	   26e0	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:43:56 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:88:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   88 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:89:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   89 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   90 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: In function 'setTimer_EN':
+../Core/Src/main.c:97:2: error: 'timer_EN' undeclared (first use in this function); did you mean 'setTimer_EN'?
+   97 |  timer_EN = duration / TIMER_CYCLE;
+      |  ^~~~~~~~
+      |  setTimer_EN
+../Core/Src/main.c:97:2: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:98:2: error: 'EN_flag' undeclared (first use in this function)
+   98 |  EN_flag = 0;
+      |  ^~~~~~~
+../Core/Src/main.c: In function 'En_run':
+../Core/Src/main.c:101:6: error: 'timer_EN' undeclared (first use in this function); did you mean 'setTimer_EN'?
+  101 |  if (timer_EN > 0) {
+      |      ^~~~~~~~
+      |      setTimer_EN
+../Core/Src/main.c:105:3: error: 'EN_flag' undeclared (first use in this function)
+  105 |   EN_flag = 1;
+      |   ^~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:140:6: warning: conflicting types for 'second_run'
+  140 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:88:2: note: previous implicit declaration of 'second_run' was here
+   88 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:152:6: warning: conflicting types for 'minute_run'
+  152 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:89:2: note: previous implicit declaration of 'minute_run' was here
+   89 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:164:6: warning: conflicting types for 'hour_run'
+  164 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'hour_run' was here
+   90 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:176:6: warning: conflicting types for 'index_run'
+  176 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
+   91 |  index_run();
+      |  ^~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:44:21 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:142:6: warning: conflicting types for 'second_run'
+  142 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:154:6: warning: conflicting types for 'minute_run'
+  154 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:166:6: warning: conflicting types for 'hour_run'
+  166 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'index_run'
+  178 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+d:\lear\k221\mcu\stm_ide\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/main.o: in function `HAL_TIM_PeriodElapsedCallback':
+D:/LEAR/K221/MCU/MCU_Code/Lab/Lab_1/EX/Debug/../Core/Src/main.c:95: undefined reference to `EN_run'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:70: EX.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:44:37 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:102:6: warning: conflicting types for 'EN_run'
+  102 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:142:6: warning: conflicting types for 'second_run'
+  142 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:154:6: warning: conflicting types for 'minute_run'
+  154 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:166:6: warning: conflicting types for 'hour_run'
+  166 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'index_run'
+  178 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8240	     44	   1692	   9976	   26f8	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.bin
+Finished building: EX.hex
+ 
+Finished building: EX.list
+ 
+ 
+10:46:07 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:102:6: warning: conflicting types for 'EN_run'
+  102 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:142:6: warning: conflicting types for 'second_run'
+  142 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:154:6: warning: conflicting types for 'minute_run'
+  154 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:166:6: warning: conflicting types for 'hour_run'
+  166 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'index_run'
+  178 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8260	     44	   1692	   9996	   270c	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+10:46:52 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:102:6: warning: conflicting types for 'EN_run'
+  102 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:142:6: warning: conflicting types for 'second_run'
+  142 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:154:6: warning: conflicting types for 'minute_run'
+  154 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:166:6: warning: conflicting types for 'hour_run'
+  166 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'index_run'
+  178 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:232:18: error: expected ';' before ')' token
+  232 |  setTimer_EN(600));
+      |                  ^
+      |                  ;
+../Core/Src/main.c:232:18: error: expected statement before ')' token
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:46:58 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:102:6: warning: conflicting types for 'EN_run'
+  102 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:142:6: warning: conflicting types for 'second_run'
+  142 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:154:6: warning: conflicting types for 'minute_run'
+  154 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:166:6: warning: conflicting types for 'hour_run'
+  166 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'index_run'
+  178 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8320	     44	   1692	  10056	   2748	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:47:52 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:102:6: warning: conflicting types for 'EN_run'
+  102 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:142:6: warning: conflicting types for 'second_run'
+  142 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:154:6: warning: conflicting types for 'minute_run'
+  154 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:166:6: warning: conflicting types for 'hour_run'
+  166 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'index_run'
+  178 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8320	     44	   1692	  10056	   2748	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:48:18 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:102:6: warning: conflicting types for 'EN_run'
+  102 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:142:6: warning: conflicting types for 'second_run'
+  142 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:154:6: warning: conflicting types for 'minute_run'
+  154 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:166:6: warning: conflicting types for 'hour_run'
+  166 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'index_run'
+  178 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8320	     44	   1692	  10056	   2748	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:49:54 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:102:6: warning: conflicting types for 'EN_run'
+  102 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:142:6: warning: conflicting types for 'second_run'
+  142 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:154:6: warning: conflicting types for 'minute_run'
+  154 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:166:6: warning: conflicting types for 'hour_run'
+  166 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'index_run'
+  178 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8224	     44	   1692	   9960	   26e8	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:54:02 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8232	     44	   1692	   9968	   26f0	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+10:54:40 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8232	     44	   1692	   9968	   26f0	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:55:51 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8328	     44	   1692	  10064	   2750	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:56:41 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     44	   1692	  10052	   2744	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:58:40 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-size   EX.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8316	     44	   1692	  10052	   2744	EX.elf
+Finished building: default.size.stdout
+ 
+10:58:46 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-size   EX.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8316	     44	   1692	  10052	   2744	EX.elf
+Finished building: default.size.stdout
+ 
+11:03:07 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     44	   1692	  10052	   2744	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+11:05:18 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8320	     44	   1692	  10056	   2748	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+11:07:13 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:266:4: error: 'index' undeclared (first use in this function)
+  266 |    index++;
+      |    ^~~~~
+../Core/Src/main.c:266:4: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:07:18 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8332	     44	   1692	  10068	   2754	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+11:41:32 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8344	     44	   1692	  10080	   2760	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+11:43:53 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8340	     44	   1692	  10076	   275c	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.bin
+Finished building: EX.hex
+Finished building: EX.list
+ 
+ 
+ 
+11:46:21 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:145:6: warning: conflicting types for 'second_run'
+  145 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:157:6: warning: conflicting types for 'minute_run'
+  157 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:169:6: warning: conflicting types for 'hour_run'
+  169 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:181:6: warning: conflicting types for 'index_run'
+  181 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+   text	   data	    bss	    dec	    hex	filename
+   8360	     44	   1692	  10096	   2770	EX.elf
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+11:53:00 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8328	     44	   1692	  10064	   2750	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+11:55:34 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8328	     44	   1692	  10064	   2750	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+11:59:45 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8328	     44	   1692	  10064	   2750	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+12:06:43 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8232	     44	   1692	   9968	   26f0	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+ 
+Finished building: EX.list
+ 
+12:07:49 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8328	     44	   1692	  10064	   2750	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+12:09:35 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8328	     44	   1692	  10064	   2750	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+12:09:44 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-size   EX.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8328	     44	   1692	  10064	   2750	EX.elf
+Finished building: default.size.stdout
+ 
+12:12:26 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8328	     44	   1692	  10064	   2750	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+12:15:27 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8232	     44	   1692	   9968	   26f0	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+12:16:50 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:92:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   93 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:95:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:101:6: warning: conflicting types for 'EN_run'
+  101 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:95:2: note: previous implicit declaration of 'EN_run' was here
+   95 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:141:6: warning: conflicting types for 'second_run'
+  141 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:153:6: warning: conflicting types for 'minute_run'
+  153 | void minute_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'minute_run' was here
+   91 |  minute_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:165:6: warning: conflicting types for 'hour_run'
+  165 | void hour_run() {
+      |      ^~~~~~~~
+../Core/Src/main.c:92:2: note: previous implicit declaration of 'hour_run' was here
+   92 |  hour_run();
+      |  ^~~~~~~~
+../Core/Src/main.c:177:6: warning: conflicting types for 'index_run'
+  177 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'index_run' was here
+   93 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8260	     44	   1692	   9996	   270c	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+12:19:21 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:99:6: warning: conflicting types for 'EN_run'
+   99 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'EN_run' was here
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:139:6: warning: conflicting types for 'second_run'
+  139 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:151:6: warning: conflicting types for 'index_run'
+  151 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:203:2: warning: implicit declaration of function 'setTimer_minute'; did you mean 'setTimer_index'? [-Wimplicit-function-declaration]
+  203 |  setTimer_minute(60000);
+      |  ^~~~~~~~~~~~~~~
+      |  setTimer_index
+../Core/Src/main.c:204:2: warning: implicit declaration of function 'setTimer_hour'; did you mean 'setTimer_EN'? [-Wimplicit-function-declaration]
+  204 |  setTimer_hour(3600000000);
+      |  ^~~~~~~~~~~~~
+      |  setTimer_EN
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+d:\lear\k221\mcu\stm_ide\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/main.o: in function `main':
+D:/LEAR/K221/MCU/MCU_Code/Lab/Lab_1/EX/Debug/../Core/Src/main.c:203: undefined reference to `setTimer_minute'
+d:\lear\k221\mcu\stm_ide\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: D:/LEAR/K221/MCU/MCU_Code/Lab/Lab_1/EX/Debug/../Core/Src/main.c:204: undefined reference to `setTimer_hour'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:70: EX.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:19:27 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:99:6: warning: conflicting types for 'EN_run'
+   99 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'EN_run' was here
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:139:6: warning: conflicting types for 'second_run'
+  139 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:151:6: warning: conflicting types for 'index_run'
+  151 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
+   91 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7988	     44	   1676	   9708	   25ec	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+12:19:51 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-size   EX.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7988	     44	   1676	   9708	   25ec	EX.elf
+Finished building: default.size.stdout
+ 
+12:20:21 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:99:6: warning: conflicting types for 'EN_run'
+   99 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'EN_run' was here
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:139:6: warning: conflicting types for 'second_run'
+  139 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:151:6: warning: conflicting types for 'index_run'
+  151 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
+   91 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8056	     44	   1676	   9776	   2630	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+12:24:36 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:99:6: warning: conflicting types for 'EN_run'
+   99 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'EN_run' was here
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:139:6: warning: conflicting types for 'second_run'
+  139 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:151:6: warning: conflicting types for 'index_run'
+  151 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
+   91 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8052	     44	   1676	   9772	   262c	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.bin
+Finished building: EX.hex
+ 
+Finished building: EX.list
+ 
+ 
+12:28:17 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:99:6: warning: conflicting types for 'EN_run'
+   99 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'EN_run' was here
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:139:6: warning: conflicting types for 'second_run'
+  139 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:151:6: warning: conflicting types for 'index_run'
+  151 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
+   91 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8052	     44	   1676	   9772	   262c	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+12:31:15 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:99:6: warning: conflicting types for 'EN_run'
+   99 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'EN_run' was here
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:139:6: warning: conflicting types for 'second_run'
+  139 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:151:6: warning: conflicting types for 'index_run'
+  151 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
+   91 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8052	     44	   1676	   9772	   262c	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+12:32:06 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:99:6: warning: conflicting types for 'EN_run'
+   99 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'EN_run' was here
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:139:6: warning: conflicting types for 'second_run'
+  139 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:151:6: warning: conflicting types for 'index_run'
+  151 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
+   91 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8052	     44	   1676	   9772	   262c	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+12:35:05 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:99:6: warning: conflicting types for 'EN_run'
+   99 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'EN_run' was here
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:139:6: warning: conflicting types for 'second_run'
+  139 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:151:6: warning: conflicting types for 'index_run'
+  151 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
+   91 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8056	     44	   1676	   9776	   2630	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+12:38:07 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
+   91 |  index_run();
+      |  ^~~~~~~~~
+../Core/Src/main.c:93:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:99:6: warning: conflicting types for 'EN_run'
+   99 | void EN_run() {
+      |      ^~~~~~
+../Core/Src/main.c:93:2: note: previous implicit declaration of 'EN_run' was here
+   93 |  EN_run();
+      |  ^~~~~~
+../Core/Src/main.c:139:6: warning: conflicting types for 'second_run'
+  139 | void second_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
+   90 |  second_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:151:6: warning: conflicting types for 'index_run'
+  151 | void index_run() {
+      |      ^~~~~~~~~
+../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
+   91 |  index_run();
+      |  ^~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+   text	   data	    bss	    dec	    hex	filename
+   8056	     44	   1676	   9776	   2630	EX.elf
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
