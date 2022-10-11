@@ -1,10 +1,11 @@
-12:38:07 **** Incremental Build of configuration Debug for project EX ****
+10:00:42 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
+../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run'; did you mean 'Led_run'? [-Wimplicit-function-declaration]
    90 |  second_run();
       |  ^~~~~~~~~~
+      |  Led_run
 ../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
    91 |  index_run();
       |  ^~~~~~~~~
@@ -18,14 +19,14 @@ arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -D
 ../Core/Src/main.c:93:2: note: previous implicit declaration of 'EN_run' was here
    93 |  EN_run();
       |  ^~~~~~
-../Core/Src/main.c:139:6: warning: conflicting types for 'second_run'
-  139 | void second_run() {
+../Core/Src/main.c:111:6: warning: conflicting types for 'second_run'
+  111 | void second_run() {
       |      ^~~~~~~~~~
 ../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
    90 |  second_run();
       |  ^~~~~~~~~~
-../Core/Src/main.c:151:6: warning: conflicting types for 'index_run'
-  151 | void index_run() {
+../Core/Src/main.c:123:6: warning: conflicting types for 'index_run'
+  123 | void index_run() {
       |      ^~~~~~~~~
 ../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
    91 |  index_run();
@@ -35,9 +36,9 @@ Finished building target: EX.elf
  
 arm-none-eabi-size   EX.elf 
 arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-   text	   data	    bss	    dec	    hex	filename
-   8056	     44	   1676	   9776	   2630	EX.elf
 arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8156	     48	   1672	   9876	   2694	EX.elf
 arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
 Finished building: default.size.stdout
  
@@ -48,5 +49,5 @@ Finished building: EX.list
  
  
 
-12:38:08 Build Finished. 0 errors, 6 warnings. (took 866ms)
+10:00:43 Build Finished. 0 errors, 6 warnings. (took 995ms)
 
