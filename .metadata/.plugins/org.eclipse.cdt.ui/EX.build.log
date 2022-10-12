@@ -1,4 +1,4 @@
-11:12:48 **** Incremental Build of configuration Debug for project EX ****
+10:31:06 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
@@ -6,36 +6,17 @@ arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -D
 arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
 arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
 arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:90:2: warning: implicit declaration of function 'second_run'; did you mean 'Led_run'? [-Wimplicit-function-declaration]
-   90 |  second_run();
-      |  ^~~~~~~~~~
-      |  Led_run
-../Core/Src/main.c:91:2: warning: implicit declaration of function 'index_run' [-Wimplicit-function-declaration]
-   91 |  index_run();
-      |  ^~~~~~~~~
-../Core/Src/main.c:93:2: warning: implicit declaration of function 'EN_run' [-Wimplicit-function-declaration]
-   93 |  EN_run();
-      |  ^~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:105:3: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
 ../Core/Src/main.c: At top level:
-../Core/Src/main.c:99:6: warning: conflicting types for 'EN_run'
-   99 | void EN_run() {
-      |      ^~~~~~
-../Core/Src/main.c:93:2: note: previous implicit declaration of 'EN_run' was here
-   93 |  EN_run();
-      |  ^~~~~~
-../Core/Src/main.c:111:6: warning: conflicting types for 'second_run'
-  111 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:90:2: note: previous implicit declaration of 'second_run' was here
-   90 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:123:6: warning: conflicting types for 'index_run'
-  123 | void index_run() {
-      |      ^~~~~~~~~
-../Core/Src/main.c:91:2: note: previous implicit declaration of 'index_run' was here
-   91 |  index_run();
-      |  ^~~~~~~~~
+../Core/Src/main.c:124:6: warning: conflicting types for 'display7SEG'
+  124 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:105:3: note: previous implicit declaration of 'display7SEG' was here
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
 arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: EX.elf
  
@@ -44,7 +25,7 @@ arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
 arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
 arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
    text	   data	    bss	    dec	    hex	filename
-   8156	     48	   1672	   9876	   2694	EX.elf
+   7804	     24	   1696	   9524	   2534	EX.elf
 Finished building: default.size.stdout
  
 Finished building: EX.hex
@@ -54,5 +35,5 @@ Finished building: EX.list
  
  
 
-11:12:49 Build Finished. 0 errors, 6 warnings. (took 1s.124ms)
+10:31:07 Build Finished. 0 errors, 2 warnings. (took 962ms)
 
