@@ -1034,577 +1034,1871 @@ Finished building: EX.list
  
  
  
-20:45:13 **** Incremental Build of configuration Debug for project EX ****
+09:04:24 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:70:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   70 |   settimer_Led(25);
+      |   ^~~~~~~~~~~~
 ../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: In function 'updateClockBuffer':
-../Core/Src/main.c:172:16: error: 'minute' undeclared (first use in this function)
-  172 |  led_buffer[3]=minute-(minute/10)*10;
-      |                ^~~~~~
-../Core/Src/main.c:172:16: note: each undeclared identifier is reported only once for each function it appears in
-../Core/Src/main.c:174:16: error: 'hour' undeclared (first use in this function)
-  174 |  led_buffer[1]=hour-(hour/10)*10;
-      |                ^~~~
-make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-20:52:26 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
+../Core/Src/main.c:80:6: warning: conflicting types for 'settimer_Led'
+   80 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:70:3: note: previous implicit declaration of 'settimer_Led' was here
+   70 |   settimer_Led(25);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:111:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  111 |    display7SEG(0);
+      |    ^~~~~~~~~~~
 ../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-   text	   data	    bss	    dec	    hex	filename
-   7744	     44	   1652	   9440	   24e0	EX.elf
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-20:55:18 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-   text	   data	    bss	    dec	    hex	filename
-   7744	     44	   1652	   9440	   24e0	EX.elf
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-20:58:42 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-   text	   data	    bss	    dec	    hex	filename
-   7732	     44	   1652	   9428	   24d4	EX.elf
-Finished building: default.size.stdout
- 
-Finished building: EX.bin
-Finished building: EX.hex
-Finished building: EX.list
- 
- 
- 
-20:58:59 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   7744	     44	   1652	   9440	   24e0	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-21:02:58 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   7748	     44	   1652	   9444	   24e4	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-21:04:17 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   7876	     44	   1652	   9572	   2564	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-21:05:39 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   7872	     44	   1652	   9568	   2560	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-21:06:21 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   7872	     44	   1652	   9568	   2560	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-21:43:51 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:82:13: error: invalid suffix "đ" on integer constant
-   82 |   counter = 10đ;
-      |             ^~~
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-21:44:08 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:88:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:121:6: warning: conflicting types for 'update7SEG'
-  121 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:88:4: note: previous implicit declaration of 'update7SEG' was here
-   88 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-   text	   data	    bss	    dec	    hex	filename
-   7876	     44	   1652	   9572	   2564	EX.elf
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
- 
-Finished building: EX.list
- 
- 
-21:50:38 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'timer_run' [-Wimplicit-function-declaration]
-   79 |  timer_run () ;
-      |  ^~~~~~~~~
-../Core/Src/main.c:89:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   89 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:122:6: warning: conflicting types for 'update7SEG'
-  122 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:89:4: note: previous implicit declaration of 'update7SEG' was here
-   89 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: In function 'timer_run':
-../Core/Src/main.c:227:22: error: expected expression before ';' token
-  227 |    timer0_counter - -;
-      |                      ^
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:219:6: warning: variable 'timer0_flag' set but not used [-Wunused-but-set-variable]
-  219 |  int timer0_flag = 0;
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
       |      ^~~~~~~~~~~
-At top level:
-../Core/Src/main.c:225:7: warning: 'timer_run' defined but not used [-Wunused-function]
-  225 |  void timer_run() {
-      |       ^~~~~~~~~
-../Core/Src/main.c:221:7: warning: 'setTimer0' defined but not used [-Wunused-function]
-  221 |  void setTimer0(int duration) {
-      |       ^~~~~~~~~
+../Core/Src/main.c:111:4: note: previous implicit declaration of 'display7SEG' was here
+  111 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7480	     36	   1668	   9184	   23e0	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+09:04:42 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:70:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   70 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:80:6: warning: conflicting types for 'settimer_Led'
+   80 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:70:3: note: previous implicit declaration of 'settimer_Led' was here
+   70 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:111:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  111 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:111:4: note: previous implicit declaration of 'display7SEG' was here
+  111 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7480	     36	   1668	   9184	   23e0	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:09:32 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:70:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   70 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:80:6: warning: conflicting types for 'settimer_Led'
+   80 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:70:3: note: previous implicit declaration of 'settimer_Led' was here
+   70 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:111:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  111 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:111:4: note: previous implicit declaration of 'display7SEG' was here
+  111 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7760	     36	   1668	   9464	   24f8	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:10:08 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:70:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   70 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:80:6: warning: conflicting types for 'settimer_Led'
+   80 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:70:3: note: previous implicit declaration of 'settimer_Led' was here
+   70 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:111:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  111 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:111:4: note: previous implicit declaration of 'display7SEG' was here
+  111 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7756	     36	   1668	   9460	   24f4	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:10:36 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:70:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   70 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:80:6: warning: conflicting types for 'settimer_Led'
+   80 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:70:3: note: previous implicit declaration of 'settimer_Led' was here
+   70 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:111:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  111 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:111:4: note: previous implicit declaration of 'display7SEG' was here
+  111 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7760	     36	   1668	   9464	   24f8	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+09:19:10 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:136:6: warning: conflicting types for 'display7SEG'
+  136 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:234:7: error: 'flag_timer1' undeclared (first use in this function)
+  234 |   if (flag_timer1 == 1) {
+      |       ^~~~~~~~~~~
+../Core/Src/main.c:234:7: note: each undeclared identifier is reported only once for each function it appears in
 make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
-21:51:00 **** Incremental Build of configuration Debug for project EX ****
+09:19:28 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'timer_run' [-Wimplicit-function-declaration]
-   79 |  timer_run () ;
-      |  ^~~~~~~~~
-../Core/Src/main.c:89:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   89 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
 ../Core/Src/main.c: At top level:
-../Core/Src/main.c:122:6: warning: conflicting types for 'update7SEG'
-  122 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:89:4: note: previous implicit declaration of 'update7SEG' was here
-   89 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:219:6: warning: variable 'timer0_flag' set but not used [-Wunused-but-set-variable]
-  219 |  int timer0_flag = 0;
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:136:6: warning: conflicting types for 'display7SEG'
+  136 | void display7SEG(int index) {
       |      ^~~~~~~~~~~
-At top level:
-../Core/Src/main.c:225:7: warning: 'timer_run' defined but not used [-Wunused-function]
-  225 |  void timer_run() {
-      |       ^~~~~~~~~
-../Core/Src/main.c:221:7: warning: 'setTimer0' defined but not used [-Wunused-function]
-  221 |  void setTimer0(int duration) {
-      |       ^~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
 arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-d:\lear\k221\mcu\stm_ide\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/main.o: in function `HAL_TIM_PeriodElapsedCallback':
-D:/LEAR/K221/MCU/MCU_Code/Lab/Lab_1/EX/Debug/../Core/Src/main.c:79: undefined reference to `timer_run'
-collect2.exe: error: ld returned 1 exit status
-make: *** [makefile:70: EX.elf] Error 1
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-21:53:01 **** Incremental Build of configuration Debug for project EX ****
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7736	     36	   1676	   9448	   24e8	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:20:52 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'timer_run' [-Wimplicit-function-declaration]
-   79 |  timer_run () ;
-      |  ^~~~~~~~~
-../Core/Src/main.c:89:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   89 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
 ../Core/Src/main.c: At top level:
-../Core/Src/main.c:122:6: warning: conflicting types for 'update7SEG'
-  122 | void update7SEG(int index) {
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:136:6: warning: conflicting types for 'display7SEG'
+  136 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7736	     20	   1692	   9448	   24e8	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:23:05 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run()
+      |  ^~~~~~~~~~
+../Core/Src/main.c:135:14: error: expected ';' before '}' token
+  135 |  timer1_run()
+      |              ^
+      |              ;
+  136 | }
+      | ~             
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
       |      ^~~~~~~~~~
-../Core/Src/main.c:89:4: note: previous implicit declaration of 'update7SEG' was here
-   89 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run()
+      |  ^~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:23:15 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7792	     20	   1692	   9504	   2520	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+09:23:58 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7812	     20	   1692	   9524	   2534	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:24:28 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7792	     20	   1692	   9504	   2520	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+09:29:01 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7792	     20	   1692	   9504	   2520	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:31:34 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7792	     20	   1692	   9504	   2520	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+09:34:23 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7812	     20	   1692	   9524	   2534	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:36:27 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c:136:6: error: 'timer1_flag' undeclared (first use in this function)
+  136 |  if (timer1_flag == 1) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:136:6: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:137:5: warning: implicit declaration of function 'set_timer1' [-Wimplicit-function-declaration]
+  137 |     set_timer1(0);
+      |     ^~~~~~~~~~
+../Core/Src/main.c:138:5: error: 'second' undeclared (first use in this function)
+  138 |     second++; // count for second
+      |     ^~~~~~
+../Core/Src/main.c:141:6: error: 'minute' undeclared (first use in this function)
+  141 |      minute++; //over 60 second comback equa 0, minute ++
+      |      ^~~~~~
+../Core/Src/main.c:145:6: error: 'hour' undeclared (first use in this function)
+  145 |      hour++;   //over 60 minute comback equa 0, hour ++
+      |      ^~~~
+../Core/Src/main.c:150:5: warning: implicit declaration of function 'updateClockBuffer' [-Wimplicit-function-declaration]
+  150 |     updateClockBuffer();
+      |     ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:153:6: warning: conflicting types for 'display7SEG'
+  153 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:190:6: warning: conflicting types for 'set_timer1'
+  190 | void set_timer1(int duration) {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:137:5: note: previous implicit declaration of 'set_timer1' was here
+  137 |     set_timer1(0);
+      |     ^~~~~~~~~~
+../Core/Src/main.c:194:6: warning: conflicting types for 'timer1_run'
+  194 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:211:28: warning: unused variable 'second' [-Wunused-variable]
-  211 |  int hour = 0, minute = 0, second = 0;
+../Core/Src/main.c:237:28: warning: unused variable 'second' [-Wunused-variable]
+  237 |  int hour = 0, minute = 0, second = 0;
       |                            ^~~~~~
 At top level:
-../Core/Src/main.c:225:7: warning: 'timer_run' defined but not used [-Wunused-function]
-  225 |  void timer_run() {
-      |       ^~~~~~~~~
-../Core/Src/main.c:212:7: warning: 'updateClockBuffer' defined but not used [-Wunused-function]
-  212 |  void updateClockBuffer() {
+../Core/Src/main.c:238:7: warning: 'updateClockBuffer' defined but not used [-Wunused-function]
+  238 |  void updateClockBuffer() {
       |       ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:37:06 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:153:5: error: 'second' undeclared (first use in this function)
+  153 |     second++; // count for second
+      |     ^~~~~~
+../Core/Src/main.c:153:5: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:156:6: error: 'minute' undeclared (first use in this function)
+  156 |      minute++; //over 60 second comback equa 0, minute ++
+      |      ^~~~~~
+../Core/Src/main.c:160:6: error: 'hour' undeclared (first use in this function)
+  160 |      hour++;   //over 60 minute comback equa 0, hour ++
+      |      ^~~~
+../Core/Src/main.c:165:5: warning: implicit declaration of function 'updateClockBuffer' [-Wimplicit-function-declaration]
+  165 |     updateClockBuffer();
+      |     ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:168:6: warning: conflicting types for 'display7SEG'
+  168 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:238:28: warning: unused variable 'second' [-Wunused-variable]
+  238 |  int hour = 0, minute = 0, second = 0;
+      |                            ^~~~~~
+At top level:
+../Core/Src/main.c:239:7: warning: 'updateClockBuffer' defined but not used [-Wunused-function]
+  239 |  void updateClockBuffer() {
+      |       ^~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:39:30 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
 arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-d:\lear\k221\mcu\stm_ide\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/main.o: in function `HAL_TIM_PeriodElapsedCallback':
-D:/LEAR/K221/MCU/MCU_Code/Lab/Lab_1/EX/Debug/../Core/Src/main.c:79: undefined reference to `timer_run'
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7792	     20	   1692	   9504	   2520	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+ 
+Finished building: EX.list
+ 
+09:45:36 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run()
+      |  ^~~~~~~~~~
+../Core/Src/main.c:135:14: error: expected ';' before '}' token
+  135 |  timer1_run()
+      |              ^
+      |              ;
+  136 | }
+      | ~             
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run()
+      |  ^~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+09:45:50 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7812	     20	   1692	   9524	   2534	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:50:14 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7792	     20	   1692	   9504	   2520	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+09:51:22 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7808	     20	   1700	   9528	   2538	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:52:02 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7808	     24	   1696	   9528	   2538	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:54:46 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7828	     24	   1696	   9548	   254c	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+09:55:27 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:110:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:135:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:137:6: warning: conflicting types for 'display7SEG'
+  137 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:110:4: note: previous implicit declaration of 'display7SEG' was here
+  110 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:178:6: warning: conflicting types for 'timer1_run'
+  178 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:135:2: note: previous implicit declaration of 'timer1_run' was here
+  135 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7832	     24	   1696	   9552	   2550	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+09:57:40 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'Led_Timer_2':
+../Core/Src/main.c:69:3: warning: implicit declaration of function 'settimer_Led' [-Wimplicit-function-declaration]
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:79:6: warning: conflicting types for 'settimer_Led'
+   79 | void settimer_Led(int duration) {
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:69:3: note: previous implicit declaration of 'settimer_Led' was here
+   69 |   settimer_Led(100);
+      |   ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:108:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  108 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:131:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  131 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:133:6: warning: conflicting types for 'display7SEG'
+  133 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:108:4: note: previous implicit declaration of 'display7SEG' was here
+  108 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:174:6: warning: conflicting types for 'timer1_run'
+  174 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:131:2: note: previous implicit declaration of 'timer1_run' was here
+  131 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7808	     24	   1696	   9528	   2538	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+09:58:43 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:105:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  105 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:127:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  127 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:129:6: warning: conflicting types for 'display7SEG'
+  129 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:105:4: note: previous implicit declaration of 'display7SEG' was here
+  105 |    display7SEG(0);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c:170:6: warning: conflicting types for 'timer1_run'
+  170 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:127:2: note: previous implicit declaration of 'timer1_run' was here
+  127 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7804	     24	   1696	   9524	   2534	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:03:50 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:105:3: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:127:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  127 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:129:6: warning: conflicting types for 'display7SEG'
+  129 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:105:3: note: previous implicit declaration of 'display7SEG' was here
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c:170:6: warning: conflicting types for 'timer1_run'
+  170 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:127:2: note: previous implicit declaration of 'timer1_run' was here
+  127 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7672	     40	   1680	   9392	   24b0	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:10:26 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:105:3: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:127:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  127 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:129:6: warning: conflicting types for 'display7SEG'
+  129 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:105:3: note: previous implicit declaration of 'display7SEG' was here
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c:170:6: warning: conflicting types for 'timer1_run'
+  170 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:127:2: note: previous implicit declaration of 'timer1_run' was here
+  127 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7780	     40	   1680	   9500	   251c	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:10:50 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:105:3: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:127:2: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  127 |  timer1_run();
+      |  ^~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:129:6: warning: conflicting types for 'display7SEG'
+  129 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:105:3: note: previous implicit declaration of 'display7SEG' was here
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c:170:6: warning: conflicting types for 'timer1_run'
+  170 | void timer1_run() {
+      |      ^~~~~~~~~~
+../Core/Src/main.c:127:2: note: previous implicit declaration of 'timer1_run' was here
+  127 |  timer1_run();
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7780	     24	   1696	   9500	   251c	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+ 
+Finished building: EX.list
+ 
+ 
+10:11:39 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:105:3: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:124:6: warning: conflicting types for 'display7SEG'
+  124 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:105:3: note: previous implicit declaration of 'display7SEG' was here
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7780	     24	   1696	   9500	   251c	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+10:13:01 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:105:3: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:124:6: warning: conflicting types for 'display7SEG'
+  124 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:105:3: note: previous implicit declaration of 'display7SEG' was here
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:250:4: warning: implicit declaration of function 'updateBuffer'; did you mean 'updateClockBuffer'? [-Wimplicit-function-declaration]
+  250 |    updateBuffer();
+      |    ^~~~~~~~~~~~
+      |    updateClockBuffer
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+d:\lear\k221\mcu\stm_ide\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/main.o: in function `main':
+D:/LEAR/K221/MCU/MCU_Code/Lab/Lab_1/EX/Debug/../Core/Src/main.c:250: undefined reference to `updateBuffer'
 collect2.exe: error: ld returned 1 exit status
 make: *** [makefile:70: EX.elf] Error 1
 "make -j8 all" terminated with exit code 2. Build might be incomplete.
-21:54:03 **** Incremental Build of configuration Debug for project EX ****
+10:13:22 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'timer_run' [-Wimplicit-function-declaration]
-   79 |  timer_run () ;
-      |  ^~~~~~~~~
-../Core/Src/main.c:89:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   89 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:105:3: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
 ../Core/Src/main.c: At top level:
-../Core/Src/main.c:122:6: warning: conflicting types for 'update7SEG'
-  122 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:89:4: note: previous implicit declaration of 'update7SEG' was here
-   89 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:183:6: warning: conflicting types for 'timer_run'
-  183 | void timer_run() {
+../Core/Src/main.c:124:6: warning: conflicting types for 'display7SEG'
+  124 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:105:3: note: previous implicit declaration of 'display7SEG' was here
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7804	     24	   1696	   9524	   2534	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+10:13:37 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-size   EX.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7804	     24	   1696	   9524	   2534	EX.elf
+Finished building: default.size.stdout
+ 
+10:15:44 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'clearAllClock':
+../Core/Src/main.c:53:4: error: 'Led_0_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   53 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |    ^~~~~~~~~
+      |    Led_Red_Pin
+../Core/Src/main.c:53:4: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:53:16: error: 'Led_1_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   53 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                ^~~~~~~~~
+      |                Led_Red_Pin
+../Core/Src/main.c:53:28: error: 'Led_2_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   53 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                            ^~~~~~~~~
+      |                            Led_Red_Pin
+../Core/Src/main.c:53:40: error: 'Led_3_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   53 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                        ^~~~~~~~~
+      |                                        Led_Red_Pin
+../Core/Src/main.c:53:52: error: 'Led_4_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   53 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                                    ^~~~~~~~~
+      |                                                    Led_Red_Pin
+../Core/Src/main.c:54:8: error: 'Led_5_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   54 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |        ^~~~~~~~~
+      |        Led_Red_Pin
+../Core/Src/main.c:54:20: error: 'Led_6_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   54 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                    ^~~~~~~~~
+      |                    Led_Red_Pin
+../Core/Src/main.c:54:32: error: 'Led_7_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   54 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                ^~~~~~~~~
+      |                                Led_Red_Pin
+../Core/Src/main.c:54:44: error: 'Led_8_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   54 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                            ^~~~~~~~~
+      |                                            Led_Red_Pin
+../Core/Src/main.c:54:56: error: 'Led_9_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   54 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                                        ^~~~~~~~~
+      |                                                        Led_Red_Pin
+../Core/Src/main.c:55:8: error: 'Led_10_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   55 |      | Led_10_Pin | Led_11_Pin, GPIO_PIN_SET);
+      |        ^~~~~~~~~~
+      |        Led_Red_Pin
+../Core/Src/main.c:55:21: error: 'Led_11_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   55 |      | Led_10_Pin | Led_11_Pin, GPIO_PIN_SET);
+      |                     ^~~~~~~~~~
+      |                     Led_Red_Pin
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:6: error: 'Led_0_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  101 |      Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
       |      ^~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'timer_run' was here
-   79 |  timer_run () ;
-      |  ^~~~~~~~~
+      |      Led_Red_Pin
+../Core/Src/main.c:101:18: error: 'Led_1_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  101 |      Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                  ^~~~~~~~~
+      |                  Led_Red_Pin
+../Core/Src/main.c:101:30: error: 'Led_2_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  101 |      Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                              ^~~~~~~~~
+      |                              Led_Red_Pin
+../Core/Src/main.c:101:42: error: 'Led_3_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  101 |      Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                          ^~~~~~~~~
+      |                                          Led_Red_Pin
+../Core/Src/main.c:101:54: error: 'Led_4_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  101 |      Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                                      ^~~~~~~~~
+      |                                                      Led_Red_Pin
+../Core/Src/main.c:102:10: error: 'Led_5_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  102 |        | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin
+      |          ^~~~~~~~~
+      |          Led_Red_Pin
+../Core/Src/main.c:102:22: error: 'Led_6_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  102 |        | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin
+      |                      ^~~~~~~~~
+      |                      Led_Red_Pin
+../Core/Src/main.c:102:34: error: 'Led_7_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  102 |        | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin
+      |                                  ^~~~~~~~~
+      |                                  Led_Red_Pin
+../Core/Src/main.c:102:46: error: 'Led_8_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  102 |        | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin
+      |                                              ^~~~~~~~~
+      |                                              Led_Red_Pin
+../Core/Src/main.c:103:10: error: 'Led_9_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  103 |        | Led_9_Pin | Led_10_Pin | Led_11_Pin,
+      |          ^~~~~~~~~
+      |          Led_Red_Pin
+../Core/Src/main.c:103:22: error: 'Led_10_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  103 |        | Led_9_Pin | Led_10_Pin | Led_11_Pin,
+      |                      ^~~~~~~~~~
+      |                      Led_Red_Pin
+../Core/Src/main.c:103:35: error: 'Led_11_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  103 |        | Led_9_Pin | Led_10_Pin | Led_11_Pin,
+      |                                   ^~~~~~~~~~
+      |                                   Led_Red_Pin
+../Core/Src/main.c: In function 'MX_GPIO_Init':
+../Core/Src/main.c:163:4: error: 'Led_0_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  163 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |    ^~~~~~~~~
+      |    Led_Red_Pin
+../Core/Src/main.c:163:16: error: 'Led_1_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  163 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                ^~~~~~~~~
+      |                Led_Red_Pin
+../Core/Src/main.c:163:28: error: 'Led_2_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  163 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                            ^~~~~~~~~
+      |                            Led_Red_Pin
+../Core/Src/main.c:163:40: error: 'Led_3_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  163 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                        ^~~~~~~~~
+      |                                        Led_Red_Pin
+../Core/Src/main.c:163:52: error: 'Led_4_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  163 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                                    ^~~~~~~~~
+      |                                                    Led_Red_Pin
+../Core/Src/main.c:164:8: error: 'Led_5_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  164 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |        ^~~~~~~~~
+      |        Led_Red_Pin
+../Core/Src/main.c:164:20: error: 'Led_6_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  164 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                    ^~~~~~~~~
+      |                    Led_Red_Pin
+../Core/Src/main.c:164:32: error: 'Led_7_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  164 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                ^~~~~~~~~
+      |                                Led_Red_Pin
+../Core/Src/main.c:164:44: error: 'Led_8_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  164 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                            ^~~~~~~~~
+      |                                            Led_Red_Pin
+../Core/Src/main.c:164:56: error: 'Led_9_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  164 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                                        ^~~~~~~~~
+      |                                                        Led_Red_Pin
+../Core/Src/main.c:165:8: error: 'Led_10_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  165 |      | Led_10_Pin | Led_11_Pin, GPIO_PIN_RESET);
+      |        ^~~~~~~~~~
+      |        Led_Red_Pin
+../Core/Src/main.c:165:21: error: 'Led_11_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  165 |      | Led_10_Pin | Led_11_Pin, GPIO_PIN_RESET);
+      |                     ^~~~~~~~~~
+      |                     Led_Red_Pin
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:16:07 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/main.c: In function 'clearAllClock':
+../Core/Src/main.c:55:4: error: 'Led_0_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   55 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |    ^~~~~~~~~
+      |    Led_Red_Pin
+../Core/Src/main.c:55:4: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:55:16: error: 'Led_1_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   55 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                ^~~~~~~~~
+      |                Led_Red_Pin
+../Core/Src/main.c:55:28: error: 'Led_2_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   55 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                            ^~~~~~~~~
+      |                            Led_Red_Pin
+../Core/Src/main.c:55:40: error: 'Led_3_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   55 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                        ^~~~~~~~~
+      |                                        Led_Red_Pin
+../Core/Src/main.c:55:52: error: 'Led_4_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   55 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                                    ^~~~~~~~~
+      |                                                    Led_Red_Pin
+../Core/Src/main.c:56:8: error: 'Led_5_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   56 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |        ^~~~~~~~~
+      |        Led_Red_Pin
+../Core/Src/main.c:56:20: error: 'Led_6_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   56 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                    ^~~~~~~~~
+      |                    Led_Red_Pin
+../Core/Src/main.c:56:32: error: 'Led_7_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   56 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                ^~~~~~~~~
+      |                                Led_Red_Pin
+../Core/Src/main.c:56:44: error: 'Led_8_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   56 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                            ^~~~~~~~~
+      |                                            Led_Red_Pin
+../Core/Src/main.c:56:56: error: 'Led_9_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   56 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                                        ^~~~~~~~~
+      |                                                        Led_Red_Pin
+../Core/Src/main.c:57:8: error: 'Led_10_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   57 |      | Led_10_Pin | Led_11_Pin, GPIO_PIN_SET);
+      |        ^~~~~~~~~~
+      |        Led_Red_Pin
+../Core/Src/main.c:57:21: error: 'Led_11_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   57 |      | Led_10_Pin | Led_11_Pin, GPIO_PIN_SET);
+      |                     ^~~~~~~~~~
+      |                     Led_Red_Pin
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:226:28: warning: unused variable 'second' [-Wunused-variable]
-  226 |  int hour = 0, minute = 0, second = 0;
-      |                            ^~~~~~
-At top level:
-../Core/Src/main.c:227:7: warning: 'updateClockBuffer' defined but not used [-Wunused-function]
-  227 |  void updateClockBuffer() {
-      |       ^~~~~~~~~~~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-   text	   data	    bss	    dec	    hex	filename
-   7808	     48	   1664	   9520	   2530	EX.elf
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-22:17:07 **** Incremental Build of configuration Debug for project EX ****
+../Core/Src/main.c:96:6: warning: unused variable 'count' [-Wunused-variable]
+   96 |  int count = 0;
+      |      ^~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:16:42 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-   text	   data	    bss	    dec	    hex	filename
-   8260	     48	   1680	   9988	   2704	EX.elf
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-22:19:24 **** Incremental Build of configuration Debug for project EX ****
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:88:4: error: 'Led_0_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   88 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |    ^~~~~~~~~
+      |    Led_Red_Pin
+../Core/Src/main.c:88:4: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:88:16: error: 'Led_1_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   88 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                ^~~~~~~~~
+      |                Led_Red_Pin
+../Core/Src/main.c:88:28: error: 'Led_2_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   88 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                            ^~~~~~~~~
+      |                            Led_Red_Pin
+../Core/Src/main.c:88:40: error: 'Led_3_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   88 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                        ^~~~~~~~~
+      |                                        Led_Red_Pin
+../Core/Src/main.c:88:52: error: 'Led_4_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   88 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                                    ^~~~~~~~~
+      |                                                    Led_Red_Pin
+../Core/Src/main.c:89:8: error: 'Led_5_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   89 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |        ^~~~~~~~~
+      |        Led_Red_Pin
+../Core/Src/main.c:89:20: error: 'Led_6_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   89 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                    ^~~~~~~~~
+      |                    Led_Red_Pin
+../Core/Src/main.c:89:32: error: 'Led_7_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   89 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                ^~~~~~~~~
+      |                                Led_Red_Pin
+../Core/Src/main.c:89:44: error: 'Led_8_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   89 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                            ^~~~~~~~~
+      |                                            Led_Red_Pin
+../Core/Src/main.c:89:56: error: 'Led_9_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   89 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                                        ^~~~~~~~~
+      |                                                        Led_Red_Pin
+../Core/Src/main.c:90:8: error: 'Led_10_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   90 |      | Led_10_Pin | Led_11_Pin, GPIO_PIN_SET);
+      |        ^~~~~~~~~~
+      |        Led_Red_Pin
+../Core/Src/main.c:90:21: error: 'Led_11_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+   90 |      | Led_10_Pin | Led_11_Pin, GPIO_PIN_SET);
+      |                     ^~~~~~~~~~
+      |                     Led_Red_Pin
+../Core/Src/main.c: In function 'MX_GPIO_Init':
+../Core/Src/main.c:219:4: error: 'Led_0_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  219 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |    ^~~~~~~~~
+      |    Led_Red_Pin
+../Core/Src/main.c:219:16: error: 'Led_1_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  219 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                ^~~~~~~~~
+      |                Led_Red_Pin
+../Core/Src/main.c:219:28: error: 'Led_2_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  219 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                            ^~~~~~~~~
+      |                            Led_Red_Pin
+../Core/Src/main.c:219:40: error: 'Led_3_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  219 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                        ^~~~~~~~~
+      |                                        Led_Red_Pin
+../Core/Src/main.c:219:52: error: 'Led_4_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  219 |    Led_0_Pin | Led_1_Pin | Led_2_Pin | Led_3_Pin | Led_4_Pin
+      |                                                    ^~~~~~~~~
+      |                                                    Led_Red_Pin
+../Core/Src/main.c:220:8: error: 'Led_5_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  220 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |        ^~~~~~~~~
+      |        Led_Red_Pin
+../Core/Src/main.c:220:20: error: 'Led_6_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  220 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                    ^~~~~~~~~
+      |                    Led_Red_Pin
+../Core/Src/main.c:220:32: error: 'Led_7_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  220 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                ^~~~~~~~~
+      |                                Led_Red_Pin
+../Core/Src/main.c:220:44: error: 'Led_8_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  220 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                            ^~~~~~~~~
+      |                                            Led_Red_Pin
+../Core/Src/main.c:220:56: error: 'Led_9_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  220 |      | Led_5_Pin | Led_6_Pin | Led_7_Pin | Led_8_Pin | Led_9_Pin
+      |                                                        ^~~~~~~~~
+      |                                                        Led_Red_Pin
+../Core/Src/main.c:221:8: error: 'Led_10_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  221 |      | Led_10_Pin | Led_11_Pin, GPIO_PIN_RESET);
+      |        ^~~~~~~~~~
+      |        Led_Red_Pin
+../Core/Src/main.c:221:21: error: 'Led_11_Pin' undeclared (first use in this function); did you mean 'Led_Red_Pin'?
+  221 |      | Led_10_Pin | Led_11_Pin, GPIO_PIN_RESET);
+      |                     ^~~~~~~~~~
+      |                     Led_Red_Pin
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:17:11 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
+../Core/Src/main.c: In function 'SEG7_Timer_1':
+../Core/Src/main.c:105:3: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
 ../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
+../Core/Src/main.c:124:6: warning: conflicting types for 'display7SEG'
+  124 | void display7SEG(int index) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:105:3: note: previous implicit declaration of 'display7SEG' was here
+  105 |   display7SEG(0);
+      |   ^~~~~~~~~~~
 arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: EX.elf
  
@@ -1613,606 +2907,12 @@ arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
 arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
 arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
    text	   data	    bss	    dec	    hex	filename
-   8180	     48	   1680	   9908	   26b4	EX.elf
+   7804	     24	   1696	   9524	   2534	EX.elf
 Finished building: default.size.stdout
  
 Finished building: EX.hex
 Finished building: EX.bin
+ 
 Finished building: EX.list
- 
- 
- 
-22:20:04 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-size   EX.elf 
-   text	   data	    bss	    dec	    hex	filename
-   8180	     48	   1680	   9908	   26b4	EX.elf
-Finished building: default.size.stdout
- 
-22:21:29 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   8176	     48	   1680	   9904	   26b0	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-22:21:50 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   8180	     48	   1680	   9908	   26b4	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-22:25:40 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   8180	     48	   1680	   9908	   26b4	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-22:29:30 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   8204	     48	   1680	   9932	   26cc	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-22:30:22 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   8188	     48	   1680	   9916	   26bc	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-22:30:46 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   8188	     48	   1680	   9916	   26bc	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-22:36:25 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   8188	     48	   1680	   9916	   26bc	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-22:36:31 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-size   EX.elf 
-   text	   data	    bss	    dec	    hex	filename
-   8188	     48	   1680	   9916	   26bc	EX.elf
-Finished building: default.size.stdout
- 
-09:38:47 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-   text	   data	    bss	    dec	    hex	filename
-   8184	     48	   1680	   9912	   26b8	EX.elf
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-09:39:42 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   8184	     32	   1696	   9912	   26b8	EX.elf
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
- 
- 
-09:41:23 **** Incremental Build of configuration Debug for project EX ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/main.c:79:2: warning: implicit declaration of function 'second_run' [-Wimplicit-function-declaration]
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:80:2: warning: implicit declaration of function 'minute_run' [-Wimplicit-function-declaration]
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:81:2: warning: implicit declaration of function 'hour_run' [-Wimplicit-function-declaration]
-   81 |  hour_run();
-      |  ^~~~~~~~
-../Core/Src/main.c:91:4: warning: implicit declaration of function 'update7SEG' [-Wimplicit-function-declaration]
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c: At top level:
-../Core/Src/main.c:124:6: warning: conflicting types for 'update7SEG'
-  124 | void update7SEG(int index) {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:91:4: note: previous implicit declaration of 'update7SEG' was here
-   91 |    update7SEG(index_led++);
-      |    ^~~~~~~~~~
-../Core/Src/main.c:189:6: warning: conflicting types for 'second_run'
-  189 | void second_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:79:2: note: previous implicit declaration of 'second_run' was here
-   79 |  second_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:201:6: warning: conflicting types for 'minute_run'
-  201 | void minute_run() {
-      |      ^~~~~~~~~~
-../Core/Src/main.c:80:2: note: previous implicit declaration of 'minute_run' was here
-   80 |  minute_run();
-      |  ^~~~~~~~~~
-../Core/Src/main.c:213:6: warning: conflicting types for 'hour_run'
-  213 | void hour_run() {
-      |      ^~~~~~~~
-../Core/Src/main.c:81:2: note: previous implicit declaration of 'hour_run' was here
-   81 |  hour_run();
-      |  ^~~~~~~~
-arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: EX.elf
- 
-arm-none-eabi-size   EX.elf 
-arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
-arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
-   text	   data	    bss	    dec	    hex	filename
-   8184	     60	   1668	   9912	   26b8	EX.elf
-Finished building: default.size.stdout
- 
-Finished building: EX.hex
-Finished building: EX.bin
-Finished building: EX.list
- 
  
  
