@@ -1,4 +1,4 @@
-21:40:24 **** Incremental Build of configuration Debug for project EX ****
+22:01:46 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
@@ -32,14 +32,14 @@ arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -D
    92 |  index_run();
       |  ^~~~~~~~~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:238:28: warning: unused variable 'second' [-Wunused-variable]
-  238 |  int hour = 0, minute = 0, second = 0;
+../Core/Src/main.c:239:28: warning: unused variable 'second' [-Wunused-variable]
+  239 |  int hour = 0, minute = 0, second = 0;
       |                            ^~~~~~
-../Core/Src/main.c:238:16: warning: unused variable 'minute' [-Wunused-variable]
-  238 |  int hour = 0, minute = 0, second = 0;
+../Core/Src/main.c:239:16: warning: unused variable 'minute' [-Wunused-variable]
+  239 |  int hour = 0, minute = 0, second = 0;
       |                ^~~~~~
-../Core/Src/main.c:238:6: warning: unused variable 'hour' [-Wunused-variable]
-  238 |  int hour = 0, minute = 0, second = 0;
+../Core/Src/main.c:239:6: warning: unused variable 'hour' [-Wunused-variable]
+  239 |  int hour = 0, minute = 0, second = 0;
       |      ^~~~
 arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: EX.elf
@@ -48,16 +48,16 @@ arm-none-eabi-size   EX.elf
 arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
 arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
    text	   data	    bss	    dec	    hex	filename
-   7928	     96	   1680	   9704	   25e8	EX.elf
+   7680	     96	   1680	   9456	   24f0	EX.elf
 arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
 Finished building: default.size.stdout
  
 Finished building: EX.hex
-Finished building: EX.bin
 Finished building: EX.list
+Finished building: EX.bin
  
  
  
 
-21:40:25 Build Finished. 0 errors, 9 warnings. (took 988ms)
+22:01:48 Build Finished. 0 errors, 9 warnings. (took 1s.578ms)
 
