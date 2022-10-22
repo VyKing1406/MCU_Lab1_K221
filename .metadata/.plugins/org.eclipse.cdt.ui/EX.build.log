@@ -1,16 +1,16 @@
-08:22:57 **** Incremental Build of configuration Debug for project EX ****
+10:16:34 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'SEG7_Timer_1':
-../Core/Src/main.c:83:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
-   83 |    display7SEG(1);
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:80:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+   80 |    display7SEG(SEG7_buffer[state]);
       |    ^~~~~~~~~~~
 ../Core/Src/main.c: At top level:
-../Core/Src/main.c:107:6: warning: conflicting types for 'display7SEG'
-  107 | void display7SEG(int num) {
+../Core/Src/main.c:87:6: warning: conflicting types for 'display7SEG'
+   87 | void display7SEG(int num) {
       |      ^~~~~~~~~~~
-../Core/Src/main.c:83:4: note: previous implicit declaration of 'display7SEG' was here
-   83 |    display7SEG(1);
+../Core/Src/main.c:80:4: note: previous implicit declaration of 'display7SEG' was here
+   80 |    display7SEG(SEG7_buffer[state]);
       |    ^~~~~~~~~~~
 arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: EX.elf
@@ -19,16 +19,16 @@ arm-none-eabi-size   EX.elf
 arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
 arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
    text	   data	    bss	    dec	    hex	filename
-   7276	     20	   1660	   8956	   22fc	EX.elf
+   7212	     36	   1652	   8900	   22c4	EX.elf
 arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
 Finished building: default.size.stdout
  
 Finished building: EX.hex
+Finished building: EX.list
 Finished building: EX.bin
  
-Finished building: EX.list
  
  
 
-08:22:58 Build Finished. 0 errors, 2 warnings. (took 848ms)
+10:16:35 Build Finished. 0 errors, 2 warnings. (took 1s.160ms)
 

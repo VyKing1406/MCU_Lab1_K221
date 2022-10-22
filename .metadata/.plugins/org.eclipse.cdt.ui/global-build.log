@@ -622,3 +622,126 @@ Finished building: EX.bin
 Finished building: EX.list
  
  
+10:11:44 **** Cleaning Selected Files of configuration Debug for project EX ****
+Info: Internal Builder is used for build
+Debug/Core/Src/main.o deleted.
+Debug/Core/Src/main.su deleted.
+10:14:10 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:79:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+   79 |    display7SEG(SEG7_buffer[state]);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:86:6: warning: conflicting types for 'display7SEG'
+   86 | void display7SEG(int num) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:79:4: note: previous implicit declaration of 'display7SEG' was here
+   79 |    display7SEG(SEG7_buffer[state]);
+      |    ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7152	     36	   1652	   8840	   2288	EX.elf
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+10:15:14 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:79:4: warning: implicit declaration of function 'HAL_GPIO_Toggle'; did you mean 'HAL_GPIO_TogglePin'? [-Wimplicit-function-declaration]
+   79 |    HAL_GPIO_Toggle(GPIOA, DOT_Pin);
+      |    ^~~~~~~~~~~~~~~
+      |    HAL_GPIO_TogglePin
+../Core/Src/main.c:80:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+   80 |    display7SEG(SEG7_buffer[state]);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:87:6: warning: conflicting types for 'display7SEG'
+   87 | void display7SEG(int num) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:80:4: note: previous implicit declaration of 'display7SEG' was here
+   80 |    display7SEG(SEG7_buffer[state]);
+      |    ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+d:\lear\k221\mcu\stm_ide\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/main.o: in function `HAL_TIM_PeriodElapsedCallback':
+D:/LEAR/K221/MCU/MCU_Code/Lab/Lab_1/EX/Debug/../Core/Src/main.c:79: undefined reference to `HAL_GPIO_Toggle'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:70: EX.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+10:15:28 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:80:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+   80 |    display7SEG(SEG7_buffer[state]);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:87:6: warning: conflicting types for 'display7SEG'
+   87 | void display7SEG(int num) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:80:4: note: previous implicit declaration of 'display7SEG' was here
+   80 |    display7SEG(SEG7_buffer[state]);
+      |    ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7212	     36	   1652	   8900	   22c4	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.bin
+Finished building: EX.list
+ 
+ 
+ 
+10:16:34 **** Incremental Build of configuration Debug for project EX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:80:4: warning: implicit declaration of function 'display7SEG' [-Wimplicit-function-declaration]
+   80 |    display7SEG(SEG7_buffer[state]);
+      |    ^~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:87:6: warning: conflicting types for 'display7SEG'
+   87 | void display7SEG(int num) {
+      |      ^~~~~~~~~~~
+../Core/Src/main.c:80:4: note: previous implicit declaration of 'display7SEG' was here
+   80 |    display7SEG(SEG7_buffer[state]);
+      |    ^~~~~~~~~~~
+arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: EX.elf
+ 
+arm-none-eabi-size   EX.elf 
+arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
+arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7212	     36	   1652	   8900	   22c4	EX.elf
+arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+Finished building: default.size.stdout
+ 
+Finished building: EX.hex
+Finished building: EX.list
+Finished building: EX.bin
+ 
+ 
+ 

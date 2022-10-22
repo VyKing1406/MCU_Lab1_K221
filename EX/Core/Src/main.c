@@ -56,53 +56,33 @@ static void MX_TIM2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 int counter = 0;
-int counter2 = 0;
-int state = 0;
-int led_status = 0;
-void Led_Timer_2() {
-	counter2--;
-	if (counter2 <= 0) {
-		counter2 = 100;
-		if (led_status == 0) {
-			HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, 0);
-		}
-		if (led_status == 1) {
-			HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, 1);
-		}
-		led_status = !led_status;
-	}
-}
-void SEG7_Timer_1() {
-	counter--;
-	if (counter <= 0) {
-		counter = 50;
-		uint8_t temp=GPIOA->ODR;   // init temp to work;
-		temp=temp & 0xFC3F;  // new temp will change 4 bit from 7->10 th (for 6, 7, 8, 9) equa 0;
-		if (state == 0) {
-			GPIOA->ODR=temp | 0x380;    // or to add 1110 to 7->10 th to enable EN0, and set 1 for EN1,2,3.
-			display7SEG(1);
-		}
-		if (state == 1) {
-			GPIOA->ODR=temp | 0x340; // similar for enable EN1.
-			display7SEG(2);
-		}
-		if (state == 2) {
-			GPIOA->ODR=temp | 0x2C0; // enable EN2
-			display7SEG(3);
-		}
-		if (state == 3) {
-			GPIOA->ODR=temp | 0x1C0; //enable EN3
-			display7SEG(4);
-		}
-		state++; // update state to know what 7SEG is lighted.
-		if (state == 4) {
-			state = 0;
-		}
-	}
-}
+int SEG7_buffer[4]={1,2,3,0};
+int state=0;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	SEG7_Timer_1();
-	Led_Timer_2();
+	counter--;
+		if (counter <= 0) {
+			counter = 1;
+			uint8_t temp=GPIOA->ODR;   // init temp to work;
+			temp=temp & 0xFC3F;  // new temp will change 4 bit from 7->10 th (for 6, 7, 8, 9) equa 0;
+			if (state == 0) {
+				GPIOA->ODR=temp | 0x380;    // or to add 1110 to 7->10 th to enable EN0, and set 1 for EN1,2,3.
+			}
+			if (state == 1) {
+				GPIOA->ODR=temp | 0x340; // similar for enable EN1.
+			}
+			if (state == 2) {
+				GPIOA->ODR=temp | 0x2C0; // enable EN2
+			}
+			if (state == 3) {
+				GPIOA->ODR=temp | 0x1C0; //enable EN3
+			}
+			HAL_GPIO_TogglePin(GPIOA, DOT_Pin);
+			display7SEG(SEG7_buffer[state]);
+			state++; // update state to know what 7SEG is lighted.
+			if (state == 4) {
+				state = 0;
+			}
+		}
 }
 void display7SEG(int num) {
 	if (num == 0) {
