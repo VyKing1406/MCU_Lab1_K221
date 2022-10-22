@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "interrupt_timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,16 +55,15 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-int counter = 0;
-int counter2 = 0;
 int state = 0;
 int flag_led = 0;
-int led_status = 0;
+int led_tatus = 0;
 int seg7_status = 0;
 const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer[4] = { 0, 0, 0, 0 };
-void Led_Timer_2() {
+int led_status=0;
+void Led_control_2() {
 	if (led_status == 0) {
 		HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, 0);
 	}
@@ -73,31 +72,7 @@ void Led_Timer_2() {
 	}
 	led_status = !led_status;
 }
-void settimer_Led(int duration) {
-	counter2 = duration;
-	flag_led = 0;
-}
-void Led_run() {
-	if (counter2 > 0) {
-		counter2--;
-	}
-	if (counter2 <= 0) {
-		flag_led = 1;
-	}
-}
-void settimer_7SEG(int duration) {
-	counter = duration;
-	seg7_status = 0;
-}
-void seg7_run() {
-	if (counter > 0) {
-		counter--;
-	}
-	if (counter <= 0) {
-		seg7_status = 1;
-	}
-}
-void SEG7_Timer_1() {
+void SEG7_control_1() {
 	uint8_t temp = GPIOA->ODR;   // init temp to work;
 	temp = temp & 0xFC3F; // new temp will change 4 bit from 7->10 th (for 6, 7, 8, 9) equa 0;
 	if (state == 0) {
@@ -155,21 +130,6 @@ void display7SEG(int index) {
 	}
 
 }
-int timer1_counter = 0;
-int timer1_flag = 0;
-
-void set_timer1(int duration) {
-	timer1_counter = duration;
-	timer1_flag = 0;
-}
-void timer1_run() {
-	if (timer1_counter > 0) {
-		timer1_counter--;
-	}
-	if (timer1_counter <= 0) {
-		timer1_flag = 1;
-	}
-}
 int hour = 0, minute = 10, second = 0;
 void updateClockBuffer() {
 	led_buffer[3] = minute - (minute / 10) * 10;
@@ -178,9 +138,7 @@ void updateClockBuffer() {
 	led_buffer[0] = hour / 10;
 }
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	seg7_run(); //timer for 7SEG;
-	Led_run(); //timer for 2 LEDs;
-	timer1_run();
+	timer_Run();
 }
 /* USER CODE END 0 */
 
@@ -225,16 +183,16 @@ int main(void) {
 	while (1) {
 		/* USER CODE END WHILE */
 		/* USER CODE BEGIN 3 */
-		if (counter <= 0) {
-			settimer_7SEG(50);
-			SEG7_Timer_1(); // funtionn to switch EN0 and EN1, and call display7SEG.
-		}
-		if (flag_led == 1) {
-			settimer_Led(100);
-			Led_Timer_2(); //funtionn to switch  and 2 LEDs.
+		if (timer0_flag == 1) {
+			setTimer0(500);
+			SEG7_control_1(); // funtionn to switch EN0 and EN1, and call display7SEG.
 		}
 		if (timer1_flag == 1) {
-			set_timer1(0);
+			setTimer1(1000);
+			Led_control_2(); //funtionn to switch  and 2 LEDs.
+		}
+		if (timer2_flag == 1) {
+			setTimer2(1000);
 			second++; // count for second
 			if (second >= 60) {
 				second = 0;
@@ -292,7 +250,6 @@ void SystemClock_Config(void) {
  * @retval None
  */
 static void MX_TIM2_Init(void) {
-
 	/* USER CODE BEGIN TIM2_Init 0 */
 
 	/* USER CODE END TIM2_Init 0 */
