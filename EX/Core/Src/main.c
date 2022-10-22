@@ -64,7 +64,7 @@ int seg7_status = 0;
 const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer[4] = { 0, 0, 0, 0 };
-void Led_Timer_2() {
+void Led_control_2() {
 	if (led_status == 0) {
 		HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, 0);
 	}
@@ -97,7 +97,7 @@ void seg7_run() {
 		seg7_status = 1;
 	}
 }
-void SEG7_Timer_1() {
+void SEG7_control_1() {
 	uint8_t temp = GPIOA->ODR;   // init temp to work;
 	temp = temp & 0xFC3F; // new temp will change 4 bit from 7->10 th (for 6, 7, 8, 9) equa 0;
 	if (state == 0) {
@@ -226,15 +226,15 @@ int main(void) {
 		/* USER CODE END WHILE */
 		/* USER CODE BEGIN 3 */
 		if (counter <= 0) {
-			settimer_7SEG(50);
-			SEG7_Timer_1(); // funtionn to switch EN0 and EN1, and call display7SEG.
+			settimer_7SEG(100);
+			SEG7_control_1(); // funtionn to switch EN0 and EN1, and call display7SEG.
 		}
 		if (flag_led == 1) {
 			settimer_Led(100);
-			Led_Timer_2(); //funtionn to switch  and 2 LEDs.
+			Led_control_2(); //funtionn to switch  and 2 LEDs.
 		}
 		if (timer1_flag == 1) {
-			set_timer1(0);
+			set_timer1(100);
 			second++; // count for second
 			if (second >= 60) {
 				second = 0;

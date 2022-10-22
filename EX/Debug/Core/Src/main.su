@@ -1,9 +1,9 @@
-../Core/Src/main.c:67:6:Led_Timer_2	8	static
+../Core/Src/main.c:67:6:Led_control_2	8	static
 ../Core/Src/main.c:76:6:settimer_Led	16	static
 ../Core/Src/main.c:80:6:Led_run	4	static
 ../Core/Src/main.c:88:6:settimer_7SEG	16	static
 ../Core/Src/main.c:92:6:seg7_run	4	static
-../Core/Src/main.c:100:6:SEG7_Timer_1	16	static
+../Core/Src/main.c:100:6:SEG7_control_1	16	static
 ../Core/Src/main.c:124:6:display7SEG	24	static
 ../Core/Src/main.c:161:6:set_timer1	16	static
 ../Core/Src/main.c:165:6:timer1_run	4	static
