@@ -56,115 +56,67 @@ static void MX_TIM2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 int counter = 0;
-int counter2 = 0;
+int SEG7_buffer[4] = { 1, 2, 3, 0 };
 int state = 0;
-int flag_led=0;
-int led_status = 0;
-int seg7_status=0;
-const int MAX_LED = 4;
-int index_led = 0;
-int led_buffer [4] = {9 , 1 , 7 , 2};
-void Led_Timer_2() {
-	if(flag_led==1)
-	{
-		settimer_Led(100);
-		if (led_status == 0) {
-			HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, 0);
-		}
-		if (led_status == 1) {
-			HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, 1);
-		}
-		led_status=!led_status;
-	}
-}
-void settimer_Led(int duration) {
-	counter2 = duration;
-	flag_led = 0;
-}
-void Led_run() {
-	if (counter2 > 0) {
-		counter2--;
-	}
-	if (counter2 <= 0) {
-		flag_led = 1;
-	}
-}
-void settimer_7SEG(int duration) {
-	counter = duration;
-	seg7_status = 0;
-}
-void seg7_run() {
-	if (counter > 0) {
-		counter--;
-	}
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	counter--;
 	if (counter <= 0) {
-		seg7_status = 1;
-	}
-}
-void SEG7_Timer_1() {
-	if (counter <= 0) {
-		settimer_7SEG(25);
-		uint8_t temp=GPIOA->ODR;   // init temp to work;
-		temp=temp & 0xFC3F;  // new temp will change 4 bit from 7->10 th (for 6, 7, 8, 9) equa 0;
+		counter = 25;
+		uint8_t temp = GPIOA->ODR;   // init temp to work;
+		temp = temp & 0xFC3F; // new temp will change 4 bit from 7->10 th (for 6, 7, 8, 9) equa 0;
 		if (state == 0) {
-			GPIOA->ODR=temp | 0x380;    // or to add 1110 to 7->10 th to enable EN0, and set 1 for EN1,2,3.
-			display7SEG(0);
+			GPIOA->ODR = temp | 0x380; // or to add 1110 to 7->10 th to enable EN0, and set 1 for EN1,2,3.
 		}
 		if (state == 1) {
-			GPIOA->ODR=temp | 0x340; // similar for enable EN1.
-			display7SEG(1);
+			GPIOA->ODR = temp | 0x340; // similar for enable EN1.
 		}
 		if (state == 2) {
-			GPIOA->ODR=temp | 0x2C0; // enable EN2
-			display7SEG(2);
+			GPIOA->ODR = temp | 0x2C0; // enable EN2
 		}
 		if (state == 3) {
-			GPIOA->ODR=temp | 0x1C0; //enable EN3
-			display7SEG(3);
+			GPIOA->ODR = temp | 0x1C0; //enable EN3
 		}
+		update7SEG(state);
 		state++; // update state to know what 7SEG is lighted.
 		if (state == 4) {
 			state = 0;
+			HAL_GPIO_TogglePin(GPIOA, DOT_Pin);
 		}
 	}
 }
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	seg7_run(); //timer for 7SEG;
-	SEG7_Timer_1();// funtionn to switch EN0 and EN1, and call display7SEG.
-	Led_Timer_2(); //funtionn to switch  and 2 LEDs.
-	Led_run(); //timer for 2 LEDs;
-}
-void display7SEG(int index) {
-	int num=led_buffer[index];
-	if (num == 0) {
+void update7SEG(int index) {
+	int num = SEG7_buffer[index];
+	switch (num) {
+	case 0:
 		GPIOB->ODR = 0x00000040; // hex to display 0 in 7SEG
-	}
-	if (num == 1) {
+		break;
+	case 1:
 		GPIOB->ODR = 0x00000079; //similar
-	}
-	if (num == 2) {
+		break;
+	case 2:
 		GPIOB->ODR = 0x00000024; //similar
-	}
-	if (num == 3) {
+		break;
+	case 3:
 		GPIOB->ODR = 0x00000030; //similar
-	}
-	if (num == 4) {
+		break;
+	case 4:
 		GPIOB->ODR = 0x00000019; //similar
-	}
-	if (num == 5) {
+		break;
+	case 5:
 		GPIOB->ODR = 0x00000012;
-	}
-	if (num == 6) {
+		break;
+	case 6:
 		GPIOB->ODR = 0x00000002;
-	}
-	if (num == 7) {
+		break;
+	case 7:
 		GPIOB->ODR = 0x00000078;
-	}
-	if (num == 8) {
+		break;
+	case 8:
 		GPIOB->ODR = 0x00000000;
-	}
-	if (num == 9) {
+		break;
+	case 9:
 		GPIOB->ODR = 0x00000010;
+		break;
 	}
 
 }
