@@ -5,31 +5,40 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/display.c \
+../Core/Src/input_processing.c \
+../Core/Src/input_reading.c \
+../Core/Src/interrupt_timer.c \
 ../Core/Src/main.c \
 ../Core/Src/stm32f1xx_hal_msp.c \
 ../Core/Src/stm32f1xx_it.c \
 ../Core/Src/syscalls.c \
 ../Core/Src/sysmem.c \
-../Core/Src/system_stm32f1xx.c \
-../Core/Src/timer_interrupt.c 
+../Core/Src/system_stm32f1xx.c 
 
 OBJS += \
+./Core/Src/display.o \
+./Core/Src/input_processing.o \
+./Core/Src/input_reading.o \
+./Core/Src/interrupt_timer.o \
 ./Core/Src/main.o \
 ./Core/Src/stm32f1xx_hal_msp.o \
 ./Core/Src/stm32f1xx_it.o \
 ./Core/Src/syscalls.o \
 ./Core/Src/sysmem.o \
-./Core/Src/system_stm32f1xx.o \
-./Core/Src/timer_interrupt.o 
+./Core/Src/system_stm32f1xx.o 
 
 C_DEPS += \
+./Core/Src/display.d \
+./Core/Src/input_processing.d \
+./Core/Src/input_reading.d \
+./Core/Src/interrupt_timer.d \
 ./Core/Src/main.d \
 ./Core/Src/stm32f1xx_hal_msp.d \
 ./Core/Src/stm32f1xx_it.d \
 ./Core/Src/syscalls.d \
 ./Core/Src/sysmem.d \
-./Core/Src/system_stm32f1xx.d \
-./Core/Src/timer_interrupt.d 
+./Core/Src/system_stm32f1xx.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -39,7 +48,7 @@ Core/Src/%.o Core/Src/%.su: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32f1xx_hal_msp.d ./Core/Src/stm32f1xx_hal_msp.o ./Core/Src/stm32f1xx_hal_msp.su ./Core/Src/stm32f1xx_it.d ./Core/Src/stm32f1xx_it.o ./Core/Src/stm32f1xx_it.su ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f1xx.d ./Core/Src/system_stm32f1xx.o ./Core/Src/system_stm32f1xx.su ./Core/Src/timer_interrupt.d ./Core/Src/timer_interrupt.o ./Core/Src/timer_interrupt.su
+	-$(RM) ./Core/Src/display.d ./Core/Src/display.o ./Core/Src/display.su ./Core/Src/input_processing.d ./Core/Src/input_processing.o ./Core/Src/input_processing.su ./Core/Src/input_reading.d ./Core/Src/input_reading.o ./Core/Src/input_reading.su ./Core/Src/interrupt_timer.d ./Core/Src/interrupt_timer.o ./Core/Src/interrupt_timer.su ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32f1xx_hal_msp.d ./Core/Src/stm32f1xx_hal_msp.o ./Core/Src/stm32f1xx_hal_msp.su ./Core/Src/stm32f1xx_it.d ./Core/Src/stm32f1xx_it.o ./Core/Src/stm32f1xx_it.su ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f1xx.d ./Core/Src/system_stm32f1xx.o ./Core/Src/system_stm32f1xx.su
 
 .PHONY: clean-Core-2f-Src
 
