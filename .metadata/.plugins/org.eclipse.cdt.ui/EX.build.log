@@ -1,9 +1,9 @@
-08:25:49 **** Incremental Build of configuration Debug for project EX ****
+21:44:38 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'SCH_Dispatch_Tasks':
-../Core/Src/main.c:100:5: warning: implicit declaration of function 'SCH_Delete_Task' [-Wimplicit-function-declaration]
-  100 |     SCH_Delete_Task(index);
+../Core/Src/main.c:121:5: warning: implicit declaration of function 'SCH_Delete_Task' [-Wimplicit-function-declaration]
+  121 |     SCH_Delete_Task(index);
       |     ^~~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: EX.elf
@@ -11,9 +11,9 @@ Finished building target: EX.elf
 arm-none-eabi-size   EX.elf 
 arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
 arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
-   text	   data	    bss	    dec	    hex	filename
-   7740	     20	   2444	  10204	   27dc	EX.elf
 arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8332	     24	   2488	  10844	   2a5c	EX.elf
 Finished building: default.size.stdout
  
 Finished building: EX.hex
@@ -23,5 +23,5 @@ Finished building: EX.list
  
  
 
-08:25:50 Build Finished. 0 errors, 1 warnings. (took 993ms)
+21:44:39 Build Finished. 0 errors, 1 warnings. (took 936ms)
 

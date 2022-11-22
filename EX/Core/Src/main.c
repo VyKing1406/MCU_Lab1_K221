@@ -25,11 +25,32 @@
 // MUST BE ADJUSTED FOR EACH NEW PROJECT
 #define SCH_MAX_TASKS 40
 #define NO_TASK_ID 0
-
+#define NO_OF_BUTTONS 1
+#define NU_OF_DEBOUNCE 100
+#define NU_OF_AUTO_COUNTER 50
+#define BUTTON_IS_PRESSED GPIO_PIN_RESET
+#define BUTTON_IS_RELEASED GPIO_PIN_SET
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+static GPIO_PinState debounceButtonBuffer0[NO_OF_BUTTONS];
+static GPIO_PinState debounceButtonBuffer1[NO_OF_BUTTONS];
+static GPIO_PinState debounceButtonBuffer2[NO_OF_BUTTONS];
+static GPIO_PinState debounceButtonBuffer3[NO_OF_BUTTONS];
+int timer_buttonpress_counter[NO_OF_BUTTONS];
+int flag_auto = 0;
+uint16_t Pin_input[1] = {button_Pin};
+void ( *tks1 ) () ;
+void ( *tks2 ) () ;
+void ( *tks3 ) () ;
+void ( *tks4 ) () ;
+void ( *tks5 ) () ;
+void ( *tks6 ) () ;
+void ( *tks7 ) () ;
+
+
+
 typedef struct {
 // Pointer to the task (must be a ’ void ( void ) ’ function )
 	void (*pTask)(void);
@@ -117,11 +138,40 @@ int SCH_Delete_Task(const int TASK_INDEX) {
 	return Return_code; // return s t a tus
 }
 
+void button_reading() {
+	for (int i = 0; i < NO_OF_BUTTONS; i++) {
+		debounceButtonBuffer0[i] = debounceButtonBuffer1[i];
+		debounceButtonBuffer1[i] = debounceButtonBuffer2[i];
+		debounceButtonBuffer2[i] = HAL_GPIO_ReadPin(GPIOA, Pin_input[i]);
+		if ((debounceButtonBuffer0[i] == debounceButtonBuffer1[i])
+				&& (debounceButtonBuffer1[i] == debounceButtonBuffer2[i])) {
+			if (debounceButtonBuffer3[i] != debounceButtonBuffer2[i]) {
+				debounceButtonBuffer3[i] = debounceButtonBuffer2[i];
+
+				if (debounceButtonBuffer2[i] == BUTTON_IS_PRESSED) {//button is press less 3s
+					SCH_Add_Task(tks7, 1, 0); //function to perform the function corresponding to each mode
+					timer_buttonpress_counter[i] = NU_OF_DEBOUNCE; //timer for press it will be 3s
+					//if over this, it mean the button is being pressed.
+				}
+			} else {
+				timer_buttonpress_counter[i]--;
+				if (timer_buttonpress_counter[i] == 0) { //button is being pressed
+					if (debounceButtonBuffer2[i] == BUTTON_IS_PRESSED) {
+						SCH_Add_Task(tks7, 1, 0);
+					}
+					timer_buttonpress_counter[i] = NU_OF_AUTO_COUNTER;
+					//change timer to count only 1s similar auto pressed
+				}
+			}
+		}
+	}
+}
 
 TIM_HandleTypeDef htim2;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	SCH_Update();
+	button_reading();
 }
 /* USER CODE END PTD */
 
@@ -169,6 +219,9 @@ void task_display5(void) {
 void task_display6(void) {
 	HAL_GPIO_WritePin(GPIOA, led_1_Pin | led_2_Pin | led_3_Pin | led_4_Pin | led_5_Pin , 1);
 }
+void task_display7(void) {
+	HAL_GPIO_TogglePin(GPIOA, led_6_Pin);
+}
 /* USER CODE END 0 */
 
 /**
@@ -202,19 +255,18 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 	HAL_TIM_Base_Start_IT(&htim2);
-	task_display6();
-	void ( *tks1 ) () ;
-	void ( *tks2 ) () ;
-	void ( *tks3 ) () ;
-	void ( *tks4 ) () ;
-	void ( *tks5 ) () ;
-	void ( *tks6 ) () ;
+	task_display6(); // task 6 will be turn off all led
+	//initial funtion pointers;
 	tks1 =  task_display1 ;
 	tks2 =  task_display2 ;
 	tks3 =  task_display3 ;
 	tks4 =  task_display4 ;
 	tks5 =  task_display5 ;
 	tks6 =  task_display6 ;
+	tks7 =  task_display7 ;
+	// led will be turn onl sequence from led 1 to led 5 every 2s
+	// after that, all led will be turn off 2s.
+	// and repeat for 12s each led
 	SCH_Add_Task(tks6, 0, 0);
 	SCH_Add_Task(tks1, 200, 1200);
 	SCH_Add_Task(tks2, 400, 1200);
@@ -330,19 +382,32 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, led_1_Pin|led_2_Pin|led_3_Pin|led_4_Pin
-                          |led_5_Pin, GPIO_PIN_RESET);
+                          |led_5_Pin|led_6_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : led_1_Pin led_2_Pin led_3_Pin led_4_Pin
-                           led_5_Pin */
+                           led_5_Pin led_6_Pin */
   GPIO_InitStruct.Pin = led_1_Pin|led_2_Pin|led_3_Pin|led_4_Pin
-                          |led_5_Pin;
+                          |led_5_Pin|led_6_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : button_Pin */
+  GPIO_InitStruct.Pin = button_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(button_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : s_Pin */
+  GPIO_InitStruct.Pin = s_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(s_GPIO_Port, &GPIO_InitStruct);
 
 }
 
