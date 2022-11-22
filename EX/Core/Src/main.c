@@ -21,20 +21,107 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "display.h"
-#include "input_processing.h"
-#include "interrupt_timer.h"
-#include "input_reading.h"
+
+// MUST BE ADJUSTED FOR EACH NEW PROJECT
+#define SCH_MAX_TASKS 40
+#define NO_TASK_ID 0
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+typedef struct {
+// Pointer to the task (must be a ’ void ( void ) ’ function )
+	void (*pTask)(void);
+// Delay ( ti c k s ) un til the function will ( next ) be run
+	uint32_t Delay;
+// In t e r v al ( ti c k s ) between subsequent runs .
+	uint32_t Period;
+	// Incremented (by scheduler) when task i s due to execute
+	uint8_t RunMe;
+	//This i s a hin t to solve the question below .
+	uint32_t TaskID;
+} sTask;
+sTask SCH_tasks_G[SCH_MAX_TASKS];
+void SCH_Update(void) {
+	unsigned char index;
+	for (index = 0; index < SCH_MAX_TASKS; index++) {
+		// Check i f there i s a task a t t hi s loca tion
+		if (SCH_tasks_G[index].pTask) {
+			if (SCH_tasks_G[index].Delay == 0) {
+				// The task i s due to run
+				// Inc . the ’RunMe’ fl a g
+				SCH_tasks_G[index].RunMe += 1;
+				if (SCH_tasks_G[index].Period) {
+					// Schedule periodic tasks to run again
+					SCH_tasks_G[index].Delay = SCH_tasks_G[index].Period;
+				}
+			} else {
+				// Not ye t ready to run : j u s t decrement the delay
+				SCH_tasks_G[index].Delay -= 1;
+			}
+		}
+	}
+}
+
+int SCH_Add_Task(void (*pFunction)(), unsigned int DELAY,
+		unsigned int PERIOD) {
+	unsigned char index = 0;
+	// Fi r s t find a gap in the array ( i f there i s one)
+	while ((SCH_tasks_G[index].pTask != 0) && (index < SCH_MAX_TASKS)) {
+		index++;
+	}
+
+	if (index == SCH_MAX_TASKS) {
+		// Task l i s t i s f u l l
+		// Set the global e r ro r v a ri abl e
+		// Also return an e r ro r code
+		return -1;
+	}
+	// I f we ’re here , there i s a space in the task array
+	SCH_tasks_G[index].pTask = pFunction;
+	SCH_tasks_G[index].Delay = DELAY;
+	SCH_tasks_G[index].Period = PERIOD;
+	SCH_tasks_G[index].RunMe = 0;
+	// return posi tion o f task ( to allow l a t e r dele tion )
+	return index;
+}
+
+void SCH_Dispatch_Tasks(void) {
+	unsigned char index;
+	// Dispatches (runs ) the next task ( i f one i s ready )
+	for (index = 0; index < SCH_MAX_TASKS; index++) {
+		if (SCH_tasks_G[index].RunMe > 0) {
+			(*SCH_tasks_G[index].pTask)(); // Run the task
+			SCH_tasks_G[index].RunMe -= 1; // Reset / reduce RunMe fl a g
+			// Periodic tasks will au toma tically run again
+			// − i f t hi s i s a ’one shot ’ task , remove i t from the array
+			if (SCH_tasks_G[index].Period == 0) {
+				SCH_Delete_Task(index);
+			}
+		}
+	}
+}
+
+int SCH_Delete_Task(const int TASK_INDEX) {
+	unsigned char Return_code;
+	if ( SCH_tasks_G[TASK_INDEX].pTask == 0 ) {
+		Return_code = 0;
+	}else {
+		Return_code = 1;
+	}
+	SCH_tasks_G [TASK_INDEX].pTask = 0x0000;
+	SCH_tasks_G [TASK_INDEX].Delay = 0;
+	SCH_tasks_G [TASK_INDEX].Period = 0;
+	SCH_tasks_G [TASK_INDEX].RunMe = 0;
+	return Return_code; // return s t a tus
+}
+
 
 TIM_HandleTypeDef htim2;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	timer_run();
-	button_reading();
+	SCH_Update();
 }
 /* USER CODE END PTD */
 
@@ -64,7 +151,24 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void task_display1(void) {
+	HAL_GPIO_WritePin(GPIOA, led_1_Pin, 0);
+}
+void task_display2(void) {
+	HAL_GPIO_WritePin(GPIOA, led_2_Pin, 0);
+}
+void task_display3(void) {
+	HAL_GPIO_WritePin(GPIOA, led_3_Pin, 0);
+}
+void task_display4(void) {
+	HAL_GPIO_WritePin(GPIOA, led_4_Pin, 0);
+}
+void task_display5(void) {
+	HAL_GPIO_WritePin(GPIOA, led_5_Pin, 0);
+}
+void task_display6(void) {
+	HAL_GPIO_WritePin(GPIOA, led_1_Pin | led_2_Pin | led_3_Pin | led_4_Pin | led_5_Pin , 1);
+}
 /* USER CODE END 0 */
 
 /**
@@ -98,35 +202,41 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 	HAL_TIM_Base_Start_IT(&htim2);
+	task_display6();
+	void ( *tks1 ) () ;
+	void ( *tks2 ) () ;
+	void ( *tks3 ) () ;
+	void ( *tks4 ) () ;
+	void ( *tks5 ) () ;
+	void ( *tks6 ) () ;
+	tks1 =  task_display1 ;
+	tks2 =  task_display2 ;
+	tks3 =  task_display3 ;
+	tks4 =  task_display4 ;
+	tks5 =  task_display5 ;
+	tks6 =  task_display6 ;
+	SCH_Add_Task(tks6, 0, 0);
+	SCH_Add_Task(tks1, 200, 1200);
+	SCH_Add_Task(tks2, 400, 1200);
+	SCH_Add_Task(tks3, 600, 1200);
+	SCH_Add_Task(tks4, 800, 1200);
+	SCH_Add_Task(tks5, 1000, 1200);
+	SCH_Add_Task(tks6, 1200, 1200);
 	/* USER CODE END 0 */
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-//	HAL_GPIO_WritePin(GPIOB,
-//			Pin_Led_1[0] | Pin_Led_1[1] | Pin_Led_1[2] | Pin_Led_2[0]
-//					| Pin_Led_2[1] | Pin_Led_2[2], 0);
-	setTimer(0, 0);
-	setTimer(1, 0);
-	setTimer(2, 0);
-	setTimer(3, 0);
-	setTimer(4, 0);
-	setTimer(5, 0);
+
 	while (1) {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		display_system();
-		if (timer_flag[5] == 1) {
-			setTimer(5, 1000);
-			HAL_GPIO_TogglePin(check_led_GPIO_Port, check_led_Pin);
-		}
-
+		SCH_Dispatch_Tasks();
 	}
 
 }
   /* USER CODE END 3 */
-}
 
 /**
   * @brief System Clock Configuration
@@ -220,41 +330,18 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, EN0_Pin|EN1_Pin|EN2_Pin|EN3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, led_1_Pin|led_2_Pin|led_3_Pin|led_4_Pin
+                          |led_5_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, SEG1_Pin|SEG2_Pin|SEG3_Pin|Red_2_Pin
-                          |Yellow_2_Pin|Green_2_Pin|check_led_Pin|SEG4_Pin
-                          |SEG5_Pin|SEG6_Pin|SEG7_Pin|Red_1_Pin
-                          |Yellow_1_Pin|Green_1_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : EN0_Pin EN1_Pin EN2_Pin EN3_Pin */
-  GPIO_InitStruct.Pin = EN0_Pin|EN1_Pin|EN2_Pin|EN3_Pin;
+  /*Configure GPIO pins : led_1_Pin led_2_Pin led_3_Pin led_4_Pin
+                           led_5_Pin */
+  GPIO_InitStruct.Pin = led_1_Pin|led_2_Pin|led_3_Pin|led_4_Pin
+                          |led_5_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : SEG1_Pin SEG2_Pin SEG3_Pin Red_2_Pin
-                           Yellow_2_Pin Green_2_Pin check_led_Pin SEG4_Pin
-                           SEG5_Pin SEG6_Pin SEG7_Pin Red_1_Pin
-                           Yellow_1_Pin Green_1_Pin */
-  GPIO_InitStruct.Pin = SEG1_Pin|SEG2_Pin|SEG3_Pin|Red_2_Pin
-                          |Yellow_2_Pin|Green_2_Pin|check_led_Pin|SEG4_Pin
-                          |SEG5_Pin|SEG6_Pin|SEG7_Pin|Red_1_Pin
-                          |Yellow_1_Pin|Green_1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : MODE_Pin ADD_Pin CONFIRM_Pin */
-  GPIO_InitStruct.Pin = MODE_Pin|ADD_Pin|CONFIRM_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 }
@@ -270,10 +357,10 @@ static void MX_GPIO_Init(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-	/* User can add his own implementation to report the HAL error return state */
-	__disable_irq();
-	while (1) {
-	}
+/* User can add his own implementation to report the HAL error return state */
+__disable_irq();
+while (1) {
+}
   /* USER CODE END Error_Handler_Debug */
 }
 
