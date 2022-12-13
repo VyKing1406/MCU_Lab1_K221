@@ -1,10 +1,34 @@
-21:44:38 **** Incremental Build of configuration Debug for project EX ****
+09:49:30 **** Incremental Build of configuration Debug for project EX ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'SCH_Dispatch_Tasks':
-../Core/Src/main.c:121:5: warning: implicit declaration of function 'SCH_Delete_Task' [-Wimplicit-function-declaration]
-  121 |     SCH_Delete_Task(index);
-      |     ^~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'uart_communication_fsm':
+../Core/Src/main.c:115:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  115 |   HAL_UART_Transmit(&huart2, respond, sizeof(respond), 50);
+      |                              ^~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:725:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  725 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c:119:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  119 |   sprintf(msg, "%u#\r\n", ADC_value);
+      |   ^~~~~~~
+../Core/Src/main.c:119:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:23:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   22 | #include "timer_interrupt.h"
+  +++ |+#include <stdio.h>
+   23 | /* Private includes ----------------------------------------------------------*/
+../Core/Src/main.c:119:18: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  119 |   sprintf(msg, "%u#\r\n", ADC_value);
+      |                 ~^        ~~~~~~~~~
+      |                  |        |
+      |                  |        uint32_t {aka long unsigned int}
+      |                  unsigned int
+      |                 %lu
 arm-none-eabi-gcc -o "EX.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\LEAR\K221\MCU\MCU_Code\Lab\Lab_1\EX\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="EX.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: EX.elf
  
@@ -13,15 +37,15 @@ arm-none-eabi-objdump -h -S  EX.elf  > "EX.list"
 arm-none-eabi-objcopy  -O ihex  EX.elf  "EX.hex"
 arm-none-eabi-objcopy  -O binary  EX.elf  "EX.bin"
    text	   data	    bss	    dec	    hex	filename
-   8332	     24	   2488	  10844	   2a5c	EX.elf
+  16320	    144	   1928	  18392	   47d8	EX.elf
 Finished building: default.size.stdout
  
 Finished building: EX.hex
 Finished building: EX.bin
+ 
+ 
 Finished building: EX.list
  
- 
- 
 
-21:44:39 Build Finished. 0 errors, 1 warnings. (took 936ms)
+09:49:31 Build Finished. 0 errors, 4 warnings. (took 1s.644ms)
 
